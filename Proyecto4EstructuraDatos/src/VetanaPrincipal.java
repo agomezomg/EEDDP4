@@ -9,14 +9,6 @@
  * @author didiermurillo
  */
 
-import java.awt.Graphics;
-import java.util.Iterator;
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.SingleGraph;
-import org.graphstream.ui.spriteManager.*;
-import org.graphstream.ui.graphicGraph.stylesheet.Style.*;
-import org.graphstream.ui.graphicGraph.stylesheet.StyleConstants.Units;
-
 public class VetanaPrincipal extends javax.swing.JFrame {
 
     /**
@@ -35,17 +27,44 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 132, 0));
+
+        jLabel1.setBackground(java.awt.Color.white);
+        jLabel1.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.white);
+        jLabel1.setText("Login");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(jLabel1)
+                .addContainerGap(194, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(169, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -82,77 +101,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public  void run() {
                 //new VetanaPrincipal().setVisible(true);
-                Grafote();
+                
             }
         });
         
     }
-    
-    public static void  Grafote(){
-                Graph graph = new SingleGraph("tutorial 1");
-                SpriteManager Sprites=new SpriteManager(graph);
-                Sprite S=Sprites.addSprite("S1");
-                graph.addAttribute("ui.stylesheet", styleSheet);
-                graph.setStrict(false);
-                graph.setAutoCreate(true);
-                System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-                graph.addAttribute("ui.stylesheet","sprite { shape: flow; size: 5px; z-index: 0; } sprite#S1 { fill-color: red; } sprite#S2 { fill-color: #393; } sprite#S3 { fill-color: #3B3; }");
-            
-                graph.display();
-                graph.addEdge("AB", "A", "B");
-                graph.addEdge("BC", "B", "C");
-                graph.addEdge("CA", "C", "A");
-                graph.addEdge("AD", "A", "D");
-                graph.addEdge("DE", "D", "E");
-                graph.addEdge("DF", "D", "F");
-                graph.addEdge("EF", "E", "F");
-               
-                for (Node node : graph) {
-                    node.addAttribute("ui.label", node.getId());
-                }  
-                explore1("AB",S);
-                
-            } 
-            
-    public void explore(Node source,Sprite S) {
-        Iterator<? extends Node> k = source.getBreadthFirstIterator();
-        
-        while (k.hasNext()) {
-            Node next = k.next();
-            next.setAttribute("ui.class", "marked");
-            sleep();   
-        }
-    }
-    public static void  explore1(String E,Sprite S) {
-        double Movimiento=0.1;
-        S.attachToEdge(E);
-        while(Movimiento!=1){   
-            S.setPosition(Movimiento);
-            sleep();   
-            Movimiento+=0.1;
-        }    
-    }
-    
-       
-    
-
-
-    protected  static String styleSheet =
-        "node {" +
-        "	fill-color: black;" +
-        "}" +
-        "node.marked {" +
-        "	fill-color: red;" +
-        "}";
-
-    private static void sleep() {
-        try { Thread.sleep(1000); } catch (Exception e) {}
-
-    }
-            
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
 
