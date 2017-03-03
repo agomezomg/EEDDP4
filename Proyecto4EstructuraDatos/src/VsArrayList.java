@@ -9,6 +9,7 @@
  * @author mario
  */
 public class VsArrayList implements ADTList {
+
     private int size;
     private int capacity;
     private Object[] objetos;
@@ -20,42 +21,53 @@ public class VsArrayList implements ADTList {
         this.size = size;
     }
     
+    @Override
     public int getSize() {
         return size;
     }
 
-    public boolean insert(Object elemento,int pos) {
+    @Override
+    public boolean insert(Object elemento, int pos) {
         if (getSize() == capacity) {
             resize();
         }
         for (int i = getSize(); i > pos; i--) {
-            objetos[i] = objetos[i-1];
+            objetos[i] = objetos[i - 1];
         }
         objetos[pos] = elemento;
         size++;
         return true;
     }
 
+    @Override
     public Object remove(int pos) {
         for (int i = pos; i < getSize(); i++) {
-            objetos[i] = objetos[i+1];
+            objetos[i] = objetos[i + 1];
         }
         size--;
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
+    @Override
     public Object first() {
         return objetos[0];
     }
 
+    @Override
     public Object last() {
-        return objetos[size-1];
+        return objetos[size - 1];
     }
 
+    @Override
     public void clear() {
         objetos = new Object[size];
     }
 
+    @Override
     public int indexof(Object elemento) {
         for (int i = 0; i < objetos.length; i++) {
             if (objetos.equals(elemento)) {
@@ -65,6 +77,7 @@ public class VsArrayList implements ADTList {
         return -1;
     }
 
+    @Override
     public Object get(int pos) {
         return objetos[pos];
     }
@@ -73,29 +86,20 @@ public class VsArrayList implements ADTList {
         return capacity;
     }
 
+    @Override
     public boolean isEmpty() {
-        if (objetos.length > 0) {
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public void resize(){
-        Object[] nueva = new Object[capacity+5];
-        for (int i = 0; i < objetos.length; i++) {
-            nueva[i] = objetos[i];
-        }
-        objetos = nueva;
-        capacity+=5;
+        return objetos.length > 0;
     }
 
-    public boolean isFull() {
-        if (objetos.length == capacity) {
-            return true;
-        }else{
-            return false;
-        }
+    public void resize() {
+        Object[] nueva = new Object[capacity + 5];
+        System.arraycopy(objetos, 0, nueva, 0, objetos.length);
+        objetos = nueva;
+        capacity += 5;
     }
-    
-    
+
+    @Override
+    public boolean isFull() {
+        return objetos.length == capacity;
+    }
 }
