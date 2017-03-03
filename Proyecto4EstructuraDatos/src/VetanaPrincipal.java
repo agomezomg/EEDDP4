@@ -8,6 +8,15 @@
  *
  * @author didiermurillo
  */
+
+import java.awt.Graphics;
+import java.util.Iterator;
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.spriteManager.*;
+import org.graphstream.ui.graphicGraph.stylesheet.Style.*;
+import org.graphstream.ui.graphicGraph.stylesheet.StyleConstants.Units;
+
 public class VetanaPrincipal extends javax.swing.JFrame {
 
     /**
@@ -71,12 +80,81 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VetanaPrincipal().setVisible(true);
+            public  void run() {
+                //new VetanaPrincipal().setVisible(true);
+                Grafote();
             }
         });
+        
     }
+    
+    public static void  Grafote(){
+                Graph graph = new SingleGraph("tutorial 1");
+                SpriteManager Sprites=new SpriteManager(graph);
+                Sprite S=Sprites.addSprite("S1");
+                graph.addAttribute("ui.stylesheet", styleSheet);
+                graph.setStrict(false);
+                graph.setAutoCreate(true);
+                System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+                graph.addAttribute("ui.stylesheet","sprite { shape: flow; size: 5px; z-index: 0; } sprite#S1 { fill-color: red; } sprite#S2 { fill-color: #393; } sprite#S3 { fill-color: #3B3; }");
+            
+                graph.display();
+                graph.addEdge("AB", "A", "B");
+                graph.addEdge("BC", "B", "C");
+                graph.addEdge("CA", "C", "A");
+                graph.addEdge("AD", "A", "D");
+                graph.addEdge("DE", "D", "E");
+                graph.addEdge("DF", "D", "F");
+                graph.addEdge("EF", "E", "F");
+               
+                for (Node node : graph) {
+                    node.addAttribute("ui.label", node.getId());
+                }  
+                explore1("AB",S);
+                
+            } 
+            
+    public void explore(Node source,Sprite S) {
+        Iterator<? extends Node> k = source.getBreadthFirstIterator();
+        
+        while (k.hasNext()) {
+            Node next = k.next();
+            next.setAttribute("ui.class", "marked");
+            sleep();   
+        }
+    }
+    public static void  explore1(String E,Sprite S) {
+        double Movimiento=0.1;
+        S.attachToEdge(E);
+        while(Movimiento!=1){   
+            S.setPosition(Movimiento);
+            sleep();   
+            Movimiento+=0.1;
+        }    
+    }
+    
+       
+    
+
+
+    protected  static String styleSheet =
+        "node {" +
+        "	fill-color: black;" +
+        "}" +
+        "node.marked {" +
+        "	fill-color: red;" +
+        "}";
+
+    private static void sleep() {
+        try { Thread.sleep(1000); } catch (Exception e) {}
+
+    }
+            
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
+
+
+
