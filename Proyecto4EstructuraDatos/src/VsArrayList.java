@@ -14,6 +14,13 @@ public class VsArrayList implements ADTList {
     private int capacity;
     private Object[] objetos;
 
+    public VsArrayList() {
+    }
+
+    public VsArrayList(int size) {
+        this.size = size;
+    }
+    
     @Override
     public int getSize() {
         return size;
