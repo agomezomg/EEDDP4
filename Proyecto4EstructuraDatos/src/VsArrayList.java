@@ -82,6 +82,7 @@ public class VsArrayList implements ADTList {
         return objetos[pos];
     }
 
+    @Override
     public int getCapacity() {
         return capacity;
     }
