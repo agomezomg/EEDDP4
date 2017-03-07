@@ -1,5 +1,8 @@
 
-public class Cultivo {
+import java.io.Serializable;
+
+
+public class Cultivo implements Serializable{
     public String TipoProducto;
     public int TiempoCultivarse;
     public int Precio;

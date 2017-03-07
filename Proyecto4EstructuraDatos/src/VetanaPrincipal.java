@@ -1,4 +1,10 @@
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 /*
@@ -10,7 +16,6 @@ import javax.swing.WindowConstants;
  *
  * @author didiermurillo
  */
-
 public class VetanaPrincipal extends javax.swing.JFrame {
 
     /**
@@ -38,18 +43,31 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         jb_harvest = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jl_nombre = new javax.swing.JLabel();
+        jl_saldoincial = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jDialog1 = new javax.swing.JDialog();
+        Jd_Registro = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jt_nombre = new javax.swing.JTextField();
+        jt_contra = new javax.swing.JTextField();
+        jt_saldo = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jtf_userInput = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jtf_passInput = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jtf_passinput = new javax.swing.JPasswordField();
 
         jPanel2.setBackground(new java.awt.Color(53, 144, 73));
 
@@ -69,6 +87,12 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jLabel9.setText("Nombre: ");
+
+        jLabel10.setText("Saldo Inicial:");
+
+        jl_nombre.setText(" ");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -87,22 +111,44 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jb_harvest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(292, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_saldoincial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jb_harvest)
-                .addContainerGap(172, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jSeparator2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jb_harvest))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jl_nombre))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jl_saldoincial, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 204, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -136,25 +182,82 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(37, 39, 75));
 
+        jLabel5.setText("Nombre");
+
+        jLabel6.setText("Contrasena");
+
+        jLabel7.setText("Saldo Base");
+
+        jButton2.setText("Completar Registro");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
+        jLabel8.setText("Registro");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(89, 89, 89)
+                                    .addComponent(jt_saldo))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel5))
+                                    .addGap(84, 84, 84)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jButton2))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(jLabel8)))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 106, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jt_contra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jt_saldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jButton2)
+                .addGap(35, 35, 35))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Jd_RegistroLayout = new javax.swing.GroupLayout(Jd_Registro.getContentPane());
+        Jd_Registro.getContentPane().setLayout(Jd_RegistroLayout);
+        Jd_RegistroLayout.setHorizontalGroup(
+            Jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Jd_RegistroLayout.setVerticalGroup(
+            Jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -185,6 +288,13 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Registrar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -194,22 +304,27 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(56, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel3)
-                            .addGap(30, 30, 30)
-                            .addComponent(jtf_passInput, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(73, 73, 73)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(30, 30, 30)
-                        .addComponent(jtf_userInput, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(60, 60, 60))
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(168, 168, 168))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(73, 73, 73)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(30, 30, 30)
+                                .addComponent(jtf_userInput, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtf_passinput, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,11 +337,13 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtf_passInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jtf_passinput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -245,12 +362,20 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        jf_adminView.pack();
-        jf_adminView.setLocationRelativeTo(this);
-        jf_adminView.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-        jf_adminView.setResizable(false);
-        jf_adminView.setVisible(true);
-        this.setVisible(false);
+        String user = jtf_userInput.getText();
+        String pass = jtf_passinput.getText();
+        if (leer(user, pass)) {
+            jl_saldoincial.setText(actual.getSaldoBase()+"");
+            jl_nombre.setText(actual.getNombre());
+            jf_adminView.pack();
+            jf_adminView.setLocationRelativeTo(this);
+            jf_adminView.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+            jf_adminView.setResizable(false);
+            jf_adminView.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "No existe el usuario");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -262,6 +387,64 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private void jb_harvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvestActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_harvestActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Jd_Registro.setModal(true);
+        Jd_Registro.pack();
+        Jd_Registro.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nombre = jt_nombre.getText();
+        String contra = jt_contra.getText();
+        Double saldo = Double.parseDouble(jt_saldo.getText());
+        System.out.println(nombre + contra + saldo);
+        Hacienda creada = new Hacienda(saldo, nombre, contra);
+        if (guardar(creada)) {
+            JOptionPane.showMessageDialog(this, "Guardado con exito");
+        }
+        jt_contra.setText("");
+        jt_nombre.setText("");
+        jt_saldo.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public boolean guardar(Hacienda guarda) {
+        try {
+            FileOutputStream file1 = new FileOutputStream(guarda.getNombre() + guarda.getContra() + ".fimana");
+            ObjectOutputStream file = new ObjectOutputStream(file1);
+            //Se escribe el objeto en archivo
+            file.writeObject(guarda);
+            //se cierra archivo
+            file.close();
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        return true;
+    }
+
+    public boolean leer(String nombre, String Contra) {
+        try {
+            //Stream para leer archivo
+            FileInputStream file1 = new FileInputStream(nombre + Contra + ".fimana");
+            ObjectInputStream file = new ObjectInputStream(file1);
+            //Se lee el objeto de archivo y este debe convertirse al tipo de clase que corresponde
+            actual = (Hacienda) file.readObject();
+            //se cierra archivo
+            file.close();
+            //Se utilizan metodos de la clase asi como variables guardados en el objeto
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);
+            return false;
+        } catch (IOException ex) {
+            System.out.println(ex);
+            return false;
+        }
+        if (actual != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -295,20 +478,27 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public  void run() {
-                //new VetanaPrincipal().setVisible(true);
-                
+            public void run() {
+                new VetanaPrincipal().setVisible(true);
             }
         });
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog Jd_Registro;
     private javax.swing.JButton jButton1;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -320,10 +510,13 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton jb_harvest;
     private javax.swing.JFrame jf_adminView;
-    private javax.swing.JTextField jtf_passInput;
+    private javax.swing.JLabel jl_nombre;
+    private javax.swing.JLabel jl_saldoincial;
+    private javax.swing.JTextField jt_contra;
+    private javax.swing.JTextField jt_nombre;
+    private javax.swing.JTextField jt_saldo;
+    private javax.swing.JPasswordField jtf_passinput;
     private javax.swing.JTextField jtf_userInput;
     // End of variables declaration//GEN-END:variables
+    private Hacienda actual;
 }
-
-
-

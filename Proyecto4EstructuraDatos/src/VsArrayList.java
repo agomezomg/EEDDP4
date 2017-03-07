@@ -1,3 +1,6 @@
+
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +11,7 @@
  *
  * @author mario
  */
-public class VsArrayList implements ADTList {
+public class VsArrayList implements ADTList,Serializable {
 
     private int size;
     private int capacity;
