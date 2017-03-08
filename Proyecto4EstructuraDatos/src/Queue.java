@@ -33,19 +33,16 @@ public class Queue implements Serializable{
         if (getSize() == capacity) {
             resize();
         }
-        for (int i = getSize(); i > 0; i--) {
-            objetos[i] = objetos[i - 1];
-        }
         objetos[size - 1] = elemento;
         return true;
     }
 
-    public boolean DeQueue() {
+    public Object DeQueue() {
         Object temp = objetos[0];
         for (int i = getSize(); i > 0; i--) {
             objetos[i] = objetos[i - 1];
         }
-        return true;
+        return temp;
     }
 
     public Object peek() {
