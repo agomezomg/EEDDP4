@@ -3,11 +3,11 @@ import java.io.Serializable;
 
 
 public class Cultivo implements Serializable{
-    public String TipoProducto;
-    public int TiempoCultivarse;
-    public int Precio;
-    public boolean EstadoVida;
-    public boolean TienePlaga;
+    private String TipoProducto;
+    private int TiempoCultivarse;
+    private int Precio;
+    private boolean EstadoVida;
+    private boolean TienePlaga;
 
     public Cultivo(String TipoProducto, int TiempoCultivarse, int Precio, boolean EstadoVida, boolean TienePlaga) {
         this.TipoProducto = TipoProducto;

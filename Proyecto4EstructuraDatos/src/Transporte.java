@@ -12,11 +12,11 @@ import java.io.Serializable;
  * @author didiermurillo
  */
 public class Transporte implements Serializable{
-    public String Identificacion;
-    public int Tiempo;
-    public int Costo;
-    public boolean Disponible;
-    public int Carga;
+    private String Identificacion;
+    private int Tiempo;
+    private int Costo;
+    private boolean Disponible;
+    private int Carga;
 
     public Transporte(String Identificacion, int Tiempo, int Costo, boolean Disponible, int Carga) {
         this.Identificacion = Identificacion;

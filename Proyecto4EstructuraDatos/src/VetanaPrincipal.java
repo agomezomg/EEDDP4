@@ -76,6 +76,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jtf_PersWageAdd = new javax.swing.JTextField();
         jb_tryAddPers = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -451,6 +454,42 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jPanel5.setBackground(new java.awt.Color(33, 69, 124));
+
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel15.setForeground(java.awt.Color.white);
+        jLabel15.setText("jLabel15");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(jLabel15)
+                .addContainerGap(244, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel15)
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(33, 69, 124));
@@ -578,6 +617,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(true);
         jf_adminView.setVisible(false);
+        guardar(actual);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jb_harvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvestActionPerformed
@@ -635,14 +675,20 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         String nameA = jtf_PersNameAdd.getText();
         String passA = jtf_PersPosAdd.getText();
         double salary;
-        
+
         try {
             salary = Double.parseDouble(jtf_PersWageAdd.getText());
+            actual.addPersonnel(new Personal(nameA, passA, salary));
+            JOptionPane.showMessageDialog(this, "Hired a slave successfully!");
+            jtf_PersNameAdd.setText("");
+            jtf_PersPosAdd.setText("");
+            jtf_PersWageAdd.setText("");
+            jf_adminView.setVisible(false);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Invalid salary input.");
         }
-        
-        
+
+
     }//GEN-LAST:event_jb_tryAddPersActionPerformed
 
     public boolean guardar(Hacienda guarda) {
@@ -726,12 +772,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -747,6 +795,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
