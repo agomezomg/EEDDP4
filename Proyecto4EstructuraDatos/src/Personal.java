@@ -6,15 +6,22 @@ import java.io.Serializable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author didiermurillo
  */
-public class Personal implements Serializable{
-    public String Cargo;
-    public int Sueldo;
-    public int CantidadHorasTrabajadas;
+public class Personal implements Serializable {
+
+    private String name;
+    private String Cargo;
+    private int Sueldo;
+    private int CantidadHorasTrabajadas;
+
+    public Personal(String name, String Cargo, int Sueldo) {
+        this.name = name;
+        this.Cargo = Cargo;
+        this.Sueldo = Sueldo;
+    }
 
     public Personal(String Cargo, int Sueldo) {
         this.Cargo = Cargo;
@@ -50,6 +57,13 @@ public class Personal implements Serializable{
     public void setCantidadHorasTrabajadas(int CantidadHorasTrabajadas) {
         this.CantidadHorasTrabajadas = CantidadHorasTrabajadas;
     }
-    
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

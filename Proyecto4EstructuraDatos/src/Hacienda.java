@@ -102,6 +102,9 @@ public class Hacienda implements Serializable{
         this.Personal=Personal;
     }
     
+    public boolean addPersonnel(Personal n_employee) {
+        return Personal.insert(Inventario, DineroTotal);
+    }
     
 }
 

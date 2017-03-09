@@ -47,8 +47,12 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jl_nombre = new javax.swing.JLabel();
         jl_saldoincial = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jb_addEmployee = new javax.swing.JButton();
+        jb_viewGraphs = new javax.swing.JButton();
+        jb_addCrops = new javax.swing.JButton();
+        jb_addClient = new javax.swing.JButton();
+        jb_viewStats = new javax.swing.JButton();
+        jb_harvest1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -62,6 +66,16 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jt_contra = new javax.swing.JTextField();
         jt_saldo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jd_addPersonnel = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jtf_PersNameAdd = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jtf_PersPosAdd = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jtf_PersWageAdd = new javax.swing.JTextField();
+        jb_tryAddPers = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -71,15 +85,16 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jtf_passinput = new javax.swing.JPasswordField();
 
-        jPanel2.setBackground(new java.awt.Color(53, 144, 73));
+        jPanel2.setBackground(new java.awt.Color(33, 69, 124));
+        jPanel2.setForeground(java.awt.Color.white);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         jLabel4.setForeground(java.awt.Color.white);
         jLabel4.setText("Crops");
 
-        jb_harvest.setBackground(new java.awt.Color(30, 113, 31));
+        jb_harvest.setBackground(new java.awt.Color(224, 76, 35));
         jb_harvest.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jb_harvest.setForeground(java.awt.Color.white);
+        jb_harvest.setForeground(java.awt.Color.black);
         jb_harvest.setText("Harvest");
         jb_harvest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,19 +104,73 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel9.setForeground(java.awt.Color.white);
         jLabel9.setText("Nombre: ");
 
+        jLabel10.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel10.setForeground(java.awt.Color.white);
         jLabel10.setText("Saldo Inicial:");
 
+        jl_nombre.setForeground(java.awt.Color.white);
         jl_nombre.setText(" ");
 
-        jButton4.setBackground(new java.awt.Color(43, 118, 43));
-        jButton4.setForeground(java.awt.Color.white);
-        jButton4.setText("View Register Menu");
+        jl_saldoincial.setForeground(java.awt.Color.white);
 
-        jButton5.setBackground(new java.awt.Color(43, 118, 43));
-        jButton5.setForeground(java.awt.Color.white);
-        jButton5.setText("View Graphs");
+        jb_addEmployee.setBackground(new java.awt.Color(224, 76, 35));
+        jb_addEmployee.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_addEmployee.setForeground(java.awt.Color.white);
+        jb_addEmployee.setText("Hire Employee");
+        jb_addEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_addEmployeeActionPerformed(evt);
+            }
+        });
+
+        jb_viewGraphs.setBackground(new java.awt.Color(224, 76, 35));
+        jb_viewGraphs.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_viewGraphs.setForeground(java.awt.Color.black);
+        jb_viewGraphs.setText("View Graphs");
+
+        jb_addCrops.setBackground(new java.awt.Color(224, 76, 35));
+        jb_addCrops.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_addCrops.setForeground(java.awt.Color.black);
+        jb_addCrops.setText("Purchase Crops");
+        jb_addCrops.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_addCropsActionPerformed(evt);
+            }
+        });
+
+        jb_addClient.setBackground(new java.awt.Color(224, 76, 35));
+        jb_addClient.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_addClient.setForeground(java.awt.Color.black);
+        jb_addClient.setText("Update Client List");
+        jb_addClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_addClientActionPerformed(evt);
+            }
+        });
+
+        jb_viewStats.setBackground(new java.awt.Color(224, 76, 35));
+        jb_viewStats.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_viewStats.setForeground(java.awt.Color.black);
+        jb_viewStats.setText("View Stats");
+        jb_viewStats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_viewStatsActionPerformed(evt);
+            }
+        });
+
+        jb_harvest1.setBackground(new java.awt.Color(224, 76, 35));
+        jb_harvest1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_harvest1.setForeground(java.awt.Color.black);
+        jb_harvest1.setText("Send!");
+        jb_harvest1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_harvest1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -118,30 +187,34 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel4))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jb_harvest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jb_harvest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jb_harvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_addEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_viewGraphs, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                    .addComponent(jb_addCrops, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_addClient, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                    .addComponent(jb_viewStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jl_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jl_saldoincial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
+                            .addComponent(jl_saldoincial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jl_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -152,7 +225,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jb_harvest))
+                                .addComponent(jb_harvest)
+                                .addGap(18, 18, 18)
+                                .addComponent(jb_harvest1))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -161,13 +236,19 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jl_saldoincial, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))))
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton4)
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton5))
+                                    .addComponent(jLabel10))
+                                .addGap(18, 18, 18)
+                                .addComponent(jb_addEmployee)
+                                .addGap(18, 18, 18)
+                                .addComponent(jb_addCrops)
+                                .addGap(18, 18, 18)
+                                .addComponent(jb_addClient)
+                                .addGap(18, 18, 18)
+                                .addComponent(jb_viewStats)))
+                        .addGap(16, 16, 16)
+                        .addComponent(jb_viewGraphs))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Quit [PRESS HERE LEAVE THE CLOSE BUTTON ALONE]");
@@ -281,6 +362,93 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         Jd_RegistroLayout.setVerticalGroup(
             Jd_RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel4.setBackground(new java.awt.Color(33, 69, 124));
+        jPanel4.setForeground(new java.awt.Color(252, 254, 83));
+
+        jLabel11.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel11.setForeground(java.awt.Color.white);
+        jLabel11.setText("Adding Personnel");
+
+        jLabel12.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel12.setForeground(java.awt.Color.white);
+        jLabel12.setText("Name:");
+
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel13.setForeground(java.awt.Color.white);
+        jLabel13.setText("Position:");
+
+        jLabel14.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel14.setForeground(java.awt.Color.white);
+        jLabel14.setText("Salary:");
+
+        jb_tryAddPers.setBackground(new java.awt.Color(224, 76, 35));
+        jb_tryAddPers.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_tryAddPers.setForeground(java.awt.Color.white);
+        jb_tryAddPers.setText("GO!");
+        jb_tryAddPers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_tryAddPersActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jtf_PersNameAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtf_PersPosAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jtf_PersWageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(jb_tryAddPers, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_PersNameAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_PersPosAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_PersWageAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(jb_tryAddPers)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_addPersonnelLayout = new javax.swing.GroupLayout(jd_addPersonnel.getContentPane());
+        jd_addPersonnel.getContentPane().setLayout(jd_addPersonnelLayout);
+        jd_addPersonnelLayout.setHorizontalGroup(
+            jd_addPersonnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jd_addPersonnelLayout.setVerticalGroup(
+            jd_addPersonnelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -401,6 +569,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "No existe el usuario");
         }
+
+        jtf_userInput.setText("");
+        jtf_passinput.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -435,6 +606,44 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Try again.");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jb_addEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addEmployeeActionPerformed
+        // TODO add your handling code here:
+        jd_addPersonnel.pack();
+        jd_addPersonnel.setLocationRelativeTo(jf_adminView);
+        jd_addPersonnel.setVisible(true);
+    }//GEN-LAST:event_jb_addEmployeeActionPerformed
+
+    private void jb_addCropsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addCropsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_addCropsActionPerformed
+
+    private void jb_addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_addClientActionPerformed
+
+    private void jb_viewStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_viewStatsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_viewStatsActionPerformed
+
+    private void jb_harvest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_harvest1ActionPerformed
+
+    private void jb_tryAddPersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_tryAddPersActionPerformed
+        // TODO add your handling code here:
+        String nameA = jtf_PersNameAdd.getText();
+        String passA = jtf_PersPosAdd.getText();
+        double salary;
+        
+        try {
+            salary = Double.parseDouble(jtf_PersWageAdd.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid salary input.");
+        }
+        
+        
+    }//GEN-LAST:event_jb_tryAddPersActionPerformed
 
     public boolean guardar(Hacienda guarda) {
         try {
@@ -517,10 +726,12 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -535,16 +746,28 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JButton jb_addClient;
+    private javax.swing.JButton jb_addCrops;
+    private javax.swing.JButton jb_addEmployee;
     private javax.swing.JButton jb_harvest;
+    private javax.swing.JButton jb_harvest1;
+    private javax.swing.JButton jb_tryAddPers;
+    private javax.swing.JButton jb_viewGraphs;
+    private javax.swing.JButton jb_viewStats;
+    private javax.swing.JDialog jd_addPersonnel;
     private javax.swing.JFrame jf_adminView;
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_saldoincial;
     private javax.swing.JTextField jt_contra;
     private javax.swing.JTextField jt_nombre;
     private javax.swing.JTextField jt_saldo;
+    private javax.swing.JTextField jtf_PersNameAdd;
+    private javax.swing.JTextField jtf_PersPosAdd;
+    private javax.swing.JTextField jtf_PersWageAdd;
     private javax.swing.JPasswordField jtf_passinput;
     private javax.swing.JTextField jtf_userInput;
     // End of variables declaration//GEN-END:variables
