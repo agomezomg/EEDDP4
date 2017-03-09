@@ -90,6 +90,17 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jd_crops = new javax.swing.JDialog();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jcombo_cultivo = new javax.swing.JComboBox<>();
+        jl_preciocult = new javax.swing.JLabel();
+        jl_tiempocult = new javax.swing.JLabel();
+        jt_cantidadcomprar = new javax.swing.JTextField();
+        jb_comprarcultivo = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -551,6 +562,85 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jLabel22.setText("Crops Purchase");
+
+        jLabel23.setText("Tipo De Cultivo");
+
+        jLabel24.setText("Precio");
+
+        jLabel25.setText("Tiempo");
+
+        jLabel26.setText("Cantidad");
+
+        jcombo_cultivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maiz", "Frijoles", "Banano", "Didier", "Cafe", "Cacao", "Cocoa" }));
+        jcombo_cultivo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcombo_cultivoItemStateChanged(evt);
+            }
+        });
+
+        jb_comprarcultivo.setText("Comprar");
+        jb_comprarcultivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_comprarcultivoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_cropsLayout = new javax.swing.GroupLayout(jd_crops.getContentPane());
+        jd_crops.getContentPane().setLayout(jd_cropsLayout);
+        jd_cropsLayout.setHorizontalGroup(
+            jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_cropsLayout.createSequentialGroup()
+                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_cropsLayout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel22))
+                    .addGroup(jd_cropsLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24)
+                            .addGroup(jd_cropsLayout.createSequentialGroup()
+                                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel25)
+                                    .addComponent(jLabel26))
+                                .addGap(27, 27, 27)
+                                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jl_preciocult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jcombo_cultivo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jl_tiempocult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jt_cantidadcomprar)))))
+                    .addGroup(jd_cropsLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jb_comprarcultivo)))
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
+        jd_cropsLayout.setVerticalGroup(
+            jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_cropsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jcombo_cultivo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jl_preciocult, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jl_tiempocult, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(jt_cantidadcomprar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jb_comprarcultivo)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(33, 69, 124));
@@ -720,7 +810,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_addEmployeeActionPerformed
 
     private void jb_addCropsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addCropsActionPerformed
-        // TODO add your handling code here:
+        jd_crops.pack();
+        jd_crops.setLocationRelativeTo(jf_adminView);
+        jd_crops.setVisible(true);
     }//GEN-LAST:event_jb_addCropsActionPerformed
 
     private void jb_addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addClientActionPerformed
@@ -755,6 +847,61 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jb_tryAddPersActionPerformed
+
+    private void jb_comprarcultivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_comprarcultivoActionPerformed
+        String tipocult = jcombo_cultivo.getSelectedItem().toString();
+        Double precio = Double.parseDouble(jl_preciocult.getText());
+        int tiempo = Integer.parseInt(jl_tiempocult.getText());
+        int cantidad = Integer.parseInt(jt_cantidadcomprar.getText());
+        if (actual.getDineroTotal() < precio*cantidad) {
+            JOptionPane.showMessageDialog(jd_crops,"No tiene fondos suficientes");
+        }else{
+            Cultivo cultivo = new Cultivo(tipocult, tiempo, precio,true,false);
+            actual.setDineroTotal(actual.getDineroTotal()-(precio*cantidad));
+            JOptionPane.showMessageDialog(jd_crops, "Cultivo creado");
+        }
+    }//GEN-LAST:event_jb_comprarcultivoActionPerformed
+
+    private void jcombo_cultivoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcombo_cultivoItemStateChanged
+        String culti = jcombo_cultivo.getSelectedItem().toString();
+        switch(culti){
+            case "Maiz":{
+                jl_preciocult.setText("275.0");
+                jl_tiempocult.setText("40");
+                break;
+            }
+            case "Frijoles":{
+                jl_preciocult.setText("900.0");
+                jl_tiempocult.setText("20");
+                break;
+            }
+            case "Cafe":{
+                jl_preciocult.setText("2000.0");
+                jl_tiempocult.setText("80");
+                break;
+            }
+            case "Banano":{
+                jl_preciocult.setText("2300.0");
+                jl_tiempocult.setText("70");
+                break;
+            }
+            case "Cocoa":{
+                jl_preciocult.setText("500");
+                jl_tiempocult.setText("54");
+                break;
+            }
+            case "Cacao":{
+                jl_preciocult.setText("3000.0");
+                jl_tiempocult.setText("60");
+                break;
+            }
+            case "Didier":{
+                jl_preciocult.setText("50000.0");
+                jl_tiempocult.setText("5");
+                break;
+            }
+        }
+    }//GEN-LAST:event_jcombo_cultivoItemStateChanged
 
     public boolean guardar(Hacienda guarda) {
         try {
@@ -846,6 +993,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -867,17 +1019,23 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_addClient;
     private javax.swing.JButton jb_addCrops;
     private javax.swing.JButton jb_addEmployee;
+    private javax.swing.JButton jb_comprarcultivo;
     private javax.swing.JButton jb_harvest;
     private javax.swing.JButton jb_harvest1;
     private javax.swing.JButton jb_tryAddPers;
     private javax.swing.JButton jb_viewGraphs;
     private javax.swing.JButton jb_viewStats;
+    private javax.swing.JComboBox<String> jcombo_cultivo;
     private javax.swing.JDialog jd_addPersonnel;
     private javax.swing.JDialog jd_allStatView;
+    private javax.swing.JDialog jd_crops;
     private javax.swing.JFrame jf_adminView;
     private javax.swing.JLabel jl_dia;
     private javax.swing.JLabel jl_nombre;
+    private javax.swing.JLabel jl_preciocult;
     private javax.swing.JLabel jl_saldoincial;
+    private javax.swing.JLabel jl_tiempocult;
+    private javax.swing.JTextField jt_cantidadcomprar;
     private javax.swing.JTextField jt_contra;
     private javax.swing.JTextField jt_nombre;
     private javax.swing.JTextField jt_saldo;

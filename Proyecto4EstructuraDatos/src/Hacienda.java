@@ -37,7 +37,7 @@ public class Hacienda implements Serializable {
         return DineroTotal;
     }
 
-    public void setDineroTotal(int DineroTotal) {
+    public void setDineroTotal(double DineroTotal) {
         this.DineroTotal = DineroTotal;
     }
 

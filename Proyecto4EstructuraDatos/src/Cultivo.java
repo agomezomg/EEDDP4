@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class Cultivo implements Serializable{
     private String TipoProducto;
     private int TiempoCultivarse;
-    private int Precio;
+    private double Precio;
     private boolean EstadoVida;
     private boolean TienePlaga;
 
-    public Cultivo(String TipoProducto, int TiempoCultivarse, int Precio, boolean EstadoVida, boolean TienePlaga) {
+    public Cultivo(String TipoProducto, int TiempoCultivarse, double Precio, boolean EstadoVida, boolean TienePlaga) {
         this.TipoProducto = TipoProducto;
         this.TiempoCultivarse = TiempoCultivarse;
         this.Precio = Precio;
@@ -25,8 +25,12 @@ public class Cultivo implements Serializable{
         return TiempoCultivarse;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return Precio;
+    }
+
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
     }
 
     public boolean isEstadoVida() {
@@ -43,10 +47,6 @@ public class Cultivo implements Serializable{
 
     public void setTiempoCultivarse(int TiempoCultivarse) {
         this.TiempoCultivarse = TiempoCultivarse;
-    }
-
-    public void setPrecio(int Precio) {
-        this.Precio = Precio;
     }
 
     public void setEstadoVida(boolean EstadoVida) {
