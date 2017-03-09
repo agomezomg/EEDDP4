@@ -12,26 +12,28 @@ import java.io.Serializable;
  */
 public class Hacienda implements Serializable {
 
-    private VsArrayList Inventario = new VsArrayList(5);
-    private VsArrayList Cultivos = new VsArrayList(5);
-    private VsArrayList Personal = new VsArrayList(5);
-    private VsArrayList Transportistas = new VsArrayList(5);
-    private int DineroTotal = 0;
+    private VsArrayList Inventario;
+    private VsArrayList Cultivos;
+    private VsArrayList Personal;
+    private VsArrayList Transportistas;
+    private double DineroTotal = 0;
     private double SaldoBase;
     private String Nombre;
     private String Contra;
     //public Queue Clientes;
 
-    public Hacienda() {
-    }
-
     public Hacienda(double SaldoBase, String Nombre, String Contra) {
+        Inventario = new VsArrayList(5);
+        Cultivos = new VsArrayList(5);
+        Personal = new VsArrayList(5);
+        Transportistas = new VsArrayList(5);
         this.SaldoBase = SaldoBase;
         this.Nombre = Nombre;
         this.Contra = Contra;
+        this.DineroTotal = SaldoBase;
     }
 
-    public int getDineroTotal() {
+    public double getDineroTotal() {
         return DineroTotal;
     }
 
@@ -75,5 +77,5 @@ public class Hacienda implements Serializable {
     public boolean addCultivo(Cultivo n_cultivo) {
         return Cultivos.insert(n_cultivo, Cultivos.getSize());
     }
-    
+
 }
