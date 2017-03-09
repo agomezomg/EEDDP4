@@ -6,24 +6,23 @@ import java.io.Serializable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author mario
  */
-public class VsArrayList implements ADTList,Serializable {
+public class VsArrayList implements ADTList, Serializable {
 
     private int size;
     private int capacity;
     private Object[] objetos;
 
-    public VsArrayList() {
+    public VsArrayList(int capacity) {
+        this.size = 0;
+        this.capacity = capacity;
+        
+        objetos = new Object[capacity];
     }
 
-    public VsArrayList(int size) {
-        this.size = size;
-    }
-    
     @Override
     public int getSize() {
         return size;

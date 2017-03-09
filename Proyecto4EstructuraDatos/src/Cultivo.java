@@ -3,9 +3,16 @@ import java.io.Serializable;
 
 public class Cultivo implements Serializable {
 
+<<<<<<< HEAD
     private String TipoProducto;
     private int TiempoCultivarse;
     private double Precio;
+=======
+public class Cultivo implements Serializable{
+    private String TipoProducto;
+    private int TiempoCultivarse;
+    private int Precio;
+>>>>>>> 6d9cebd37e8144ec0d453d8b0b46aea97bcf1e87
     private boolean EstadoVida;
     private boolean TienePlaga;
 

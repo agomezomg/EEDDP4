@@ -12,11 +12,11 @@ import java.io.Serializable;
  * @author didiermurillo
  */
 public class Cliente implements Serializable{
-    public String Nombre;
-    public String PedidoCultivo;
-    public int Pago;
-    public String FechaPedido;
-    public boolean PedidoenProceso;
+    private String Nombre;
+    private String PedidoCultivo;
+    private int Pago;
+    private String FechaPedido;
+    private boolean PedidoenProceso;
 
     public Cliente(String Nombre, String PedidoCultivo, int Pago, String FechaPedido, boolean PedidoenProceso) {
         this.Nombre = Nombre;
