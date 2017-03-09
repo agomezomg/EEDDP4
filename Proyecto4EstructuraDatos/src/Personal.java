@@ -14,48 +14,13 @@ public class Personal implements Serializable {
 
     private String name;
     private String Cargo;
-    private int Sueldo;
+    private double Sueldo;
     private int CantidadHorasTrabajadas;
 
-    public Personal(String name, String Cargo, int Sueldo) {
+    public Personal(String name, String Cargo, double Sueldo) {
         this.name = name;
         this.Cargo = Cargo;
         this.Sueldo = Sueldo;
-    }
-
-    public Personal(String Cargo, int Sueldo) {
-        this.Cargo = Cargo;
-        this.Sueldo = Sueldo;
-    }
-
-    public Personal(String Cargo, int Sueldo, int CantidadHorasTrabajadas) {
-        this.Cargo = Cargo;
-        this.Sueldo = Sueldo;
-        this.CantidadHorasTrabajadas = CantidadHorasTrabajadas;
-    }
-
-    public String getCargo() {
-        return Cargo;
-    }
-
-    public int getSueldo() {
-        return Sueldo;
-    }
-
-    public int getCantidadHorasTrabajadas() {
-        return CantidadHorasTrabajadas;
-    }
-
-    public void setCargo(String Cargo) {
-        this.Cargo = Cargo;
-    }
-
-    public void setSueldo(int Sueldo) {
-        this.Sueldo = Sueldo;
-    }
-
-    public void setCantidadHorasTrabajadas(int CantidadHorasTrabajadas) {
-        this.CantidadHorasTrabajadas = CantidadHorasTrabajadas;
     }
 
     public String getName() {
@@ -64,6 +29,30 @@ public class Personal implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCargo() {
+        return Cargo;
+    }
+
+    public void setCargo(String Cargo) {
+        this.Cargo = Cargo;
+    }
+
+    public double getSueldo() {
+        return Sueldo;
+    }
+
+    public void setSueldo(double Sueldo) {
+        this.Sueldo = Sueldo;
+    }
+
+    public int getCantidadHorasTrabajadas() {
+        return CantidadHorasTrabajadas;
+    }
+
+    public void setCantidadHorasTrabajadas(int CantidadHorasTrabajadas) {
+        this.CantidadHorasTrabajadas = CantidadHorasTrabajadas;
     }
 
 }
