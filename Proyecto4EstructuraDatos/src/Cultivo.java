@@ -1,32 +1,28 @@
 
 import java.io.Serializable;
 
+public class Cultivo implements Serializable {
 
-public class Cultivo implements Serializable{
-    public String TipoProducto;
-    public int TiempoCultivarse;
-    public int Precio;
-    public boolean EstadoVida;
-    public boolean TienePlaga;
+    private String TipoProducto;
+    private int TiempoCultivarse;
+    private double Precio;
+    private boolean EstadoVida;
+    private boolean TienePlaga;
 
-    public Cultivo(String TipoProducto, int TiempoCultivarse, int Precio, boolean EstadoVida, boolean TienePlaga) {
+    public Cultivo(String TipoProducto, int TiempoCultivarse, double Precio, boolean EstadoVida, boolean TienePlaga) {
         this.TipoProducto = TipoProducto;
         this.TiempoCultivarse = TiempoCultivarse;
         this.Precio = Precio;
         this.EstadoVida = EstadoVida;
         this.TienePlaga = TienePlaga;
     }
-
+    
     public String getTipoProducto() {
         return TipoProducto;
     }
 
     public int getTiempoCultivarse() {
         return TiempoCultivarse;
-    }
-
-    public int getPrecio() {
-        return Precio;
     }
 
     public boolean isEstadoVida() {
@@ -61,8 +57,5 @@ public class Cultivo implements Serializable{
     public String toString() {
         return "Cultivo{" + "TipoProducto=" + TipoProducto + ", TiempoCultivarse=" + TiempoCultivarse + ", Precio=" + Precio + ", EstadoVida=" + EstadoVida + ", TienePlaga=" + TienePlaga + '}';
     }
-    
-    
+
 }
-
-
