@@ -26,6 +26,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        
+        
     }
 
     /**
@@ -54,6 +56,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jb_addClient = new javax.swing.JButton();
         jb_viewStats = new javax.swing.JButton();
         jb_harvest1 = new javax.swing.JButton();
+        jl_dia = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -183,6 +186,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jl_dia.setText("0");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -201,7 +206,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jb_harvest, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jb_harvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jb_harvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jl_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -256,8 +262,13 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                                 .addComponent(jb_addClient)
                                 .addGap(18, 18, 18)
                                 .addComponent(jb_viewStats)))
-                        .addGap(16, 16, 16)
-                        .addComponent(jb_viewGraphs))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(jb_viewGraphs))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jl_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -655,12 +666,16 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             jf_adminView.setResizable(false);
             jf_adminView.setVisible(true);
             this.setVisible(false);
+            HiloSimulacion H = new HiloSimulacion(jl_dia);
+            Thread Simulacion = new Thread(H);
+            Simulacion.start();
         } else {
             JOptionPane.showMessageDialog(this, "No existe el usuario");
         }
 
         jtf_userInput.setText("");
         jtf_passinput.setText("");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -860,6 +875,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_addPersonnel;
     private javax.swing.JDialog jd_allStatView;
     private javax.swing.JFrame jf_adminView;
+    private javax.swing.JLabel jl_dia;
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_saldoincial;
     private javax.swing.JTextField jt_contra;
@@ -872,4 +888,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jtf_userInput;
     // End of variables declaration//GEN-END:variables
     private Hacienda actual;
+    
+    
 }
