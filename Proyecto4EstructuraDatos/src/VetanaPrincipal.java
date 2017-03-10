@@ -7,6 +7,8 @@ import java.io.ObjectOutputStream;
 import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.SingleGraph;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -117,11 +119,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel30 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBoxClients = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
-        tf_clientAddName1 = new javax.swing.JTextField();
+        tf_clientAddName2 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        tf_clientAddDistance1 = new javax.swing.JTextField();
+        tf_clientAddDistance2 = new javax.swing.JTextField();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jd_clientOrderView = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
@@ -741,18 +743,39 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel29.setText("Km away:");
 
         jButton4.setText("GO!");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jRadioButton1.setText("Yes");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel30.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel30.setText("Can this client reference others?");
 
         jRadioButton2.setText("No");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        jComboBoxClients.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxClientsItemStateChanged(evt);
+            }
+        });
 
         jLabel31.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel31.setText("Name:");
 
-        tf_clientAddName1.setEditable(false);
+        tf_clientAddName2.setEditable(false);
 
         jLabel32.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel32.setText("Km away:");
@@ -778,7 +801,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButton2)
                         .addGap(52, 52, 52)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxClients, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -791,8 +814,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                                     .addComponent(jLabel32))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_clientAddName1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_clientAddDistance1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tf_clientAddName2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_clientAddDistance2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel28)
@@ -824,14 +847,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(tf_clientAddName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_clientAddName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tf_clientAddDistance1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_clientAddDistance2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32)))
                     .addComponent(jLabel31))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
@@ -1366,6 +1389,62 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_harvest3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(GrafoClientes.getNode(actual.getNombre())==null){
+           GrafoClientes.addNode(actual.getNombre()).addAttribute("ui.label",actual.getNombre());; 
+        }
+        actual.setClientes(new Cliente(tf_clientAddName.getText(), Double.parseDouble(tf_clientAddDistance.getText())));
+        GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddName.getText());
+        if (jRadioButton1.isSelected() == true&&jComboBoxClients.getSelectedItem().toString()=="Create Other") {
+            actual.setClientes(new Cliente(tf_clientAddName2.getText(), Double.parseDouble(tf_clientAddDistance2.getText())));
+            GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddName2.getText());;
+            GrafoClientes.addEdge(tf_clientAddName.getText()+tf_clientAddName2.getText(),tf_clientAddName.getText(),tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddDistance2.getText());
+            
+        }else if (jRadioButton1.isSelected()){
+            GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddName2.getText());;
+            GrafoClientes.addEdge(tf_clientAddName.getText()+tf_clientAddName2.getText(),tf_clientAddName.getText(),tf_clientAddName2.getText());
+        }
+        GrafoClientes.addEdge(actual.getNombre()+tf_clientAddName.getText(),actual.getNombre(),tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddDistance.getText());
+        
+        tf_clientAddName2.setText("");
+        tf_clientAddDistance2.setText("");
+        tf_clientAddName.setText("");
+        tf_clientAddDistance.setText("");
+        buttonGroup1.clearSelection();
+        jd_clientAddMode.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        jComboBoxClients.setEnabled(true);
+        jComboBoxClients.removeAllItems();
+        for (int i = 0; i < actual.getClientes().getSize(); i++) {
+            jComboBoxClients.addItem(actual.getClientes(i).toString());
+
+        }
+        jComboBoxClients.addItem("Create Other");
+
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        tf_clientAddName2.setEnabled(false);
+        tf_clientAddDistance2.setEnabled(false);
+        jComboBoxClients.setEnabled(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jComboBoxClientsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxClientsItemStateChanged
+         if (jComboBoxClients.getItemCount() > 0 && jComboBoxClients.getSelectedItem().toString() == "Create Other") {
+            tf_clientAddName2.setEnabled(true);
+            tf_clientAddName2.setEditable(true);
+            tf_clientAddDistance2.setEnabled(true);
+        } else if (jComboBoxClients.getItemCount() > 0 && jComboBoxClients.getSelectedItem().toString() != "Create Other") {
+            tf_clientAddName2.setEnabled(false);
+            tf_clientAddDistance2.setEnabled(false);
+            Cliente temp = (Cliente) actual.getClientes(jComboBoxClients.getSelectedIndex());
+            tf_clientAddName2.setText(temp.getNombre());
+            tf_clientAddDistance2.setText(temp.getKmAway() + "");
+        }
+    }//GEN-LAST:event_jComboBoxClientsItemStateChanged
+
     public boolean guardar(Hacienda guarda) {
         try {
             FileOutputStream file1 = new FileOutputStream(guarda.getNombre() + guarda.getContra() + ".fimana");
@@ -1447,11 +1526,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBoxClients;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1550,11 +1629,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPasswordField jtf_passinput;
     private javax.swing.JTextField jtf_userInput;
     private javax.swing.JTextField tf_clientAddDistance;
-    private javax.swing.JTextField tf_clientAddDistance1;
+    private javax.swing.JTextField tf_clientAddDistance2;
     private javax.swing.JTextField tf_clientAddName;
-    private javax.swing.JTextField tf_clientAddName1;
+    private javax.swing.JTextField tf_clientAddName2;
     // End of variables declaration//GEN-END:variables
     private Hacienda actual;
-    
+    Graph GrafoClientes = new SingleGraph("GrafoClientes");
     
 }

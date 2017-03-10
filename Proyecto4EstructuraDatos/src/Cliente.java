@@ -27,6 +27,20 @@ public class Cliente implements Serializable {
         this.PedidoenProceso = PedidoenProceso;
     }
 
+    public Cliente(String Nombre, double kmAway) {
+        this.Nombre = Nombre;
+        this.kmAway = kmAway;
+    }
+
+    public void setKmAway(double kmAway) {
+        this.kmAway = kmAway;
+    }
+
+    public double getKmAway() {
+        return kmAway;
+    }
+
+        
     public String getNombre() {
         return Nombre;
     }
