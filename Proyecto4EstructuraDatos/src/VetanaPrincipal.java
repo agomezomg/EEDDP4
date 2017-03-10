@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -204,6 +205,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jb_viewGraphs.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jb_viewGraphs.setForeground(java.awt.Color.white);
         jb_viewGraphs.setText("View Graphs");
+        jb_viewGraphs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_viewGraphsActionPerformed(evt);
+            }
+        });
 
         jb_addCrops.setBackground(new java.awt.Color(224, 76, 35));
         jb_addCrops.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -1291,7 +1297,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_addCropsActionPerformed
 
     private void jb_addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addClientActionPerformed
-        // TODO add your handling code here:
+        jd_clientAddMode.pack();
+        jd_clientAddMode.setLocationRelativeTo(jf_adminView);
+        jd_clientAddMode.setVisible(true);
     }//GEN-LAST:event_jb_addClientActionPerformed
 
     private void jb_viewStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_viewStatsActionPerformed
@@ -1444,6 +1452,10 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             tf_clientAddDistance2.setText(temp.getKmAway() + "");
         }
     }//GEN-LAST:event_jComboBoxClientsItemStateChanged
+
+    private void jb_viewGraphsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_viewGraphsActionPerformed
+        GrafoClientes.display().setCloseFramePolicy(Viewer.CloseFramePolicy.EXIT);
+    }//GEN-LAST:event_jb_viewGraphsActionPerformed
 
     public boolean guardar(Hacienda guarda) {
         try {
