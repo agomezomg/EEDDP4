@@ -6,6 +6,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.ui.view.Viewer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -60,6 +63,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jprogress_segundbarra = new javax.swing.JProgressBar();
         jprogress_tercerbarra = new javax.swing.JProgressBar();
         jb_harvest3 = new javax.swing.JButton();
+        jLabel42 = new javax.swing.JLabel();
+        jl_saldoincial1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -117,11 +122,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel30 = new javax.swing.JLabel();
         jRadioButton2 = new javax.swing.JRadioButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBoxClients = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
-        tf_clientAddName1 = new javax.swing.JTextField();
+        tf_clientAddName2 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        tf_clientAddDistance1 = new javax.swing.JTextField();
+        tf_clientAddDistance2 = new javax.swing.JTextField();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jd_clientOrderView = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
@@ -202,6 +207,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jb_viewGraphs.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jb_viewGraphs.setForeground(java.awt.Color.white);
         jb_viewGraphs.setText("View Graphs");
+        jb_viewGraphs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_viewGraphsActionPerformed(evt);
+            }
+        });
 
         jb_addCrops.setBackground(new java.awt.Color(224, 76, 35));
         jb_addCrops.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -265,6 +275,12 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel42.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jLabel42.setForeground(java.awt.Color.white);
+        jLabel42.setText("Fondo actual:");
+
+        jl_saldoincial1.setForeground(java.awt.Color.white);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -300,20 +316,23 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel42))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jl_saldoincial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jl_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(jl_saldoincial1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jb_viewGraphs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jb_addEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jb_addCrops, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jb_addClient, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jb_viewStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jl_saldoincial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jl_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                            .addComponent(jb_viewStats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -333,6 +352,10 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jl_saldoincial, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
                         .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jl_saldoincial1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel42))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                         .addComponent(jb_addEmployee)
                         .addGap(18, 18, 18)
                         .addComponent(jb_addCrops)
@@ -342,7 +365,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jb_viewStats)
                         .addGap(18, 18, 18)
                         .addComponent(jb_viewGraphs)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jl_dia, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
@@ -361,8 +384,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jprogress_tercerbarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jb_harvest3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jb_harvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)
+                        .addComponent(jb_harvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -687,7 +711,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
         jl_tiempocult.setForeground(java.awt.Color.white);
 
-        jt_cantidadcomprar.setForeground(java.awt.Color.white);
+        jt_cantidadcomprar.setForeground(java.awt.Color.black);
 
         jb_comprarcultivo.setBackground(new java.awt.Color(224, 76, 35));
         jb_comprarcultivo.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -782,18 +806,39 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel29.setText("Km away:");
 
         jButton4.setText("GO!");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jRadioButton1.setText("Yes");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel30.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel30.setText("Can this client reference others?");
 
         jRadioButton2.setText("No");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        jComboBoxClients.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxClientsItemStateChanged(evt);
+            }
+        });
 
         jLabel31.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel31.setText("Name:");
 
-        tf_clientAddName1.setEditable(false);
+        tf_clientAddName2.setEditable(false);
 
         jLabel32.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel32.setText("Km away:");
@@ -819,7 +864,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jRadioButton2)
                         .addGap(52, 52, 52)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxClients, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -832,8 +877,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                                     .addComponent(jLabel32))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_clientAddName1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tf_clientAddDistance1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tf_clientAddName2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_clientAddDistance2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel28)
@@ -865,14 +910,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
                     .addComponent(jRadioButton2)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(tf_clientAddName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tf_clientAddName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tf_clientAddDistance1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_clientAddDistance2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32)))
                     .addComponent(jLabel31))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
@@ -894,10 +939,12 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(33, 69, 124));
 
         jLabel33.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel33.setForeground(java.awt.Color.white);
         jLabel33.setText("Client Orders");
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel35.setForeground(java.awt.Color.white);
         jLabel35.setText("View all orders in place below:");
 
         jb_clientOrdersGO.setBackground(new java.awt.Color(224, 76, 35));
@@ -952,6 +999,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(33, 69, 124));
 
         jLabel36.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel36.setForeground(java.awt.Color.white);
         jLabel36.setText("Harvest");
 
         jComboBox4.setBackground(new java.awt.Color(224, 76, 35));
@@ -959,6 +1007,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jComboBox4.setForeground(java.awt.Color.white);
 
         jLabel37.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel37.setForeground(java.awt.Color.white);
         jLabel37.setText("Select Crop");
 
         jButton5.setBackground(new java.awt.Color(224, 76, 35));
@@ -1013,6 +1062,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(33, 69, 124));
 
         jLabel38.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel38.setForeground(java.awt.Color.white);
         jLabel38.setText("Harvest");
 
         jComboBox5.setBackground(new java.awt.Color(224, 76, 35));
@@ -1020,6 +1070,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jComboBox5.setForeground(java.awt.Color.white);
 
         jLabel39.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel39.setForeground(java.awt.Color.white);
         jLabel39.setText("Select Crop");
 
         jButton6.setBackground(new java.awt.Color(224, 76, 35));
@@ -1074,6 +1125,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(33, 69, 124));
 
         jLabel40.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        jLabel40.setForeground(java.awt.Color.white);
         jLabel40.setText("Harvest");
 
         jComboBox6.setBackground(new java.awt.Color(224, 76, 35));
@@ -1081,6 +1133,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jComboBox6.setForeground(java.awt.Color.white);
 
         jLabel41.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel41.setForeground(java.awt.Color.white);
         jLabel41.setText("Select Crop");
 
         jButton7.setBackground(new java.awt.Color(224, 76, 35));
@@ -1309,7 +1362,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_addCropsActionPerformed
 
     private void jb_addClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addClientActionPerformed
-        // TODO add your handling code here:
+        jd_clientAddMode.pack();
+        jd_clientAddMode.setLocationRelativeTo(jf_adminView);
+        jd_clientAddMode.setVisible(true);
     }//GEN-LAST:event_jb_addClientActionPerformed
 
     private void jb_viewStatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_viewStatsActionPerformed
@@ -1356,6 +1411,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 Cultivo cultivo = new Cultivo(tipocult, tiempo, precio,true,false);
                 actual.setDineroTotal(actual.getDineroTotal()-(precio*cantidad));
                 JOptionPane.showMessageDialog(jd_crops, "Cultivo creado");
+                jl_saldoincial1.setText(actual.getDineroTotal()+"");
             }
         } else {
             JOptionPane.showMessageDialog(this, "Invalid input for purchase.");
@@ -1410,6 +1466,66 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private void jb_harvest3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_harvest3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(GrafoClientes.getNode(actual.getNombre())==null){
+           GrafoClientes.addNode(actual.getNombre()).addAttribute("ui.label",actual.getNombre());; 
+        }
+        actual.setClientes(new Cliente(tf_clientAddName.getText(), Double.parseDouble(tf_clientAddDistance.getText())));
+        GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddName.getText());
+        if (jRadioButton1.isSelected() == true&&jComboBoxClients.getSelectedItem().toString()=="Create Other") {
+            actual.setClientes(new Cliente(tf_clientAddName2.getText(), Double.parseDouble(tf_clientAddDistance2.getText())));
+            GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddName2.getText());;
+            GrafoClientes.addEdge(tf_clientAddName.getText()+tf_clientAddName2.getText(),tf_clientAddName.getText(),tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddDistance2.getText());
+            
+        }else if (jRadioButton1.isSelected()){
+            GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddName2.getText());;
+            GrafoClientes.addEdge(tf_clientAddName.getText()+tf_clientAddName2.getText(),tf_clientAddName.getText(),tf_clientAddName2.getText());
+        }
+        GrafoClientes.addEdge(actual.getNombre()+tf_clientAddName.getText(),actual.getNombre(),tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddDistance.getText());
+        
+        tf_clientAddName2.setText("");
+        tf_clientAddDistance2.setText("");
+        tf_clientAddName.setText("");
+        tf_clientAddDistance.setText("");
+        buttonGroup1.clearSelection();
+        jd_clientAddMode.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        jComboBoxClients.setEnabled(true);
+        jComboBoxClients.removeAllItems();
+        for (int i = 0; i < actual.getClientes().getSize(); i++) {
+            jComboBoxClients.addItem(actual.getClientes(i).toString());
+
+        }
+        jComboBoxClients.addItem("Create Other");
+
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        tf_clientAddName2.setEnabled(false);
+        tf_clientAddDistance2.setEnabled(false);
+        jComboBoxClients.setEnabled(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jComboBoxClientsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxClientsItemStateChanged
+         if (jComboBoxClients.getItemCount() > 0 && jComboBoxClients.getSelectedItem().toString() == "Create Other") {
+            tf_clientAddName2.setEnabled(true);
+            tf_clientAddName2.setEditable(true);
+            tf_clientAddDistance2.setEnabled(true);
+        } else if (jComboBoxClients.getItemCount() > 0 && jComboBoxClients.getSelectedItem().toString() != "Create Other") {
+            tf_clientAddName2.setEnabled(false);
+            tf_clientAddDistance2.setEnabled(false);
+            Cliente temp = (Cliente) actual.getClientes(jComboBoxClients.getSelectedIndex());
+            tf_clientAddName2.setText(temp.getNombre());
+            tf_clientAddDistance2.setText(temp.getKmAway() + "");
+        }
+    }//GEN-LAST:event_jComboBoxClientsItemStateChanged
+
+    private void jb_viewGraphsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_viewGraphsActionPerformed
+        GrafoClientes.display().setCloseFramePolicy(Viewer.CloseFramePolicy.EXIT);
+    }//GEN-LAST:event_jb_viewGraphsActionPerformed
 
     public boolean guardar(Hacienda guarda) {
         try {
@@ -1492,11 +1608,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBoxClients;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1533,6 +1649,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1582,6 +1699,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jl_nombre;
     private javax.swing.JLabel jl_preciocult;
     private javax.swing.JLabel jl_saldoincial;
+    private javax.swing.JLabel jl_saldoincial1;
     private javax.swing.JLabel jl_tiempocult;
     private javax.swing.JProgressBar jprogress_primerbarra;
     private javax.swing.JProgressBar jprogress_segundbarra;
@@ -1596,11 +1714,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPasswordField jtf_passinput;
     private javax.swing.JTextField jtf_userInput;
     private javax.swing.JTextField tf_clientAddDistance;
-    private javax.swing.JTextField tf_clientAddDistance1;
+    private javax.swing.JTextField tf_clientAddDistance2;
     private javax.swing.JTextField tf_clientAddName;
-    private javax.swing.JTextField tf_clientAddName1;
+    private javax.swing.JTextField tf_clientAddName2;
     // End of variables declaration//GEN-END:variables
     private Hacienda actual;
-    
+    Graph GrafoClientes = new SingleGraph("GrafoClientes");
     
 }

@@ -15,24 +15,49 @@ public class Hacienda implements Serializable {
     private VsArrayList Inventario;
     private VsArrayList Cultivos;
     private VsArrayList Personal;
-    private VsArrayList Transportistas;
     private double DineroTotal = 0;
     private double SaldoBase;
     private String Nombre;
     private String Contra;
-    //public Queue Clientes;
+    private Queue Transportistas;
+    private VsArrayList Clientes;
 
     public Hacienda(double SaldoBase, String Nombre, String Contra) {
         Inventario = new VsArrayList(5);
         Cultivos = new VsArrayList(5);
         Personal = new VsArrayList(5);
-        Transportistas = new VsArrayList(5);
+        Clientes = new VsArrayList(5);
+        Transportistas = new Queue();
         this.SaldoBase = SaldoBase;
         this.Nombre = Nombre;
         this.Contra = Contra;
         this.DineroTotal = SaldoBase;
     }
+    
+    public Object getTransportistas() {
+        Object TemporalTrans=Transportistas.DeQueue();
+        Transportistas.Queue(TemporalTrans);
+        return TemporalTrans;
+    }
 
+    public Object getClientes(int p) {
+        return Clientes.get(p);
+    }
+
+    public void setTransportistas(Object Transportistas) {
+        this.Transportistas.Queue(Transportistas);
+    }
+
+    public void setClientes(Object Clientes) {
+        this.Clientes.insert(Clientes, 0);
+    }
+
+    public VsArrayList getClientes() {
+        return Clientes;
+    }
+
+    
+    
     public double getDineroTotal() {
         return DineroTotal;
     }
