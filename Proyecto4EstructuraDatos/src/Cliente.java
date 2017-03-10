@@ -6,17 +6,18 @@ import java.io.Serializable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author didiermurillo
  */
-public class Cliente implements Serializable{
+public class Cliente implements Serializable {
+
     private String Nombre;
     private String PedidoCultivo;
     private int Pago;
     private String FechaPedido;
     private boolean PedidoenProceso;
+    private double kmAway;
 
     public Cliente(String Nombre, String PedidoCultivo, int Pago, String FechaPedido, boolean PedidoenProceso) {
         this.Nombre = Nombre;
@@ -70,7 +71,5 @@ public class Cliente implements Serializable{
     public String toString() {
         return "Cliente{" + "Nombre=" + Nombre + ", PedidoCultivo=" + PedidoCultivo + ", Pago=" + Pago + ", FechaPedido=" + FechaPedido + ", PedidoenProceso=" + PedidoenProceso + '}';
     }
-    
-    
-    
+
 }
