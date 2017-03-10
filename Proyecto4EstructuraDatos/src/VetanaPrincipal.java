@@ -4,7 +4,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
@@ -96,6 +95,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel34 = new javax.swing.JLabel();
         jd_crops = new javax.swing.JDialog();
+        jPanel11 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
@@ -584,9 +584,12 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel20.setForeground(java.awt.Color.white);
         jLabel20.setText("Current Funds:");
 
+        jComboBox1.setBackground(new java.awt.Color(224, 76, 35));
+        jComboBox1.setForeground(java.awt.Color.white);
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel34.setText("jLabel34");
+        jLabel34.setForeground(java.awt.Color.white);
+        jLabel34.setText("Employees Hired:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -650,23 +653,45 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel11.setBackground(new java.awt.Color(33, 69, 124));
+
+        jLabel22.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel22.setForeground(java.awt.Color.white);
         jLabel22.setText("Crops Purchase");
 
+        jLabel23.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel23.setForeground(java.awt.Color.white);
         jLabel23.setText("Tipo De Cultivo");
 
+        jLabel24.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel24.setForeground(java.awt.Color.white);
         jLabel24.setText("Precio");
 
+        jLabel25.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel25.setForeground(java.awt.Color.white);
         jLabel25.setText("Tiempo");
 
+        jLabel26.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jLabel26.setForeground(java.awt.Color.white);
         jLabel26.setText("Cantidad");
 
-        jcombo_cultivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maiz", "Frijoles", "Banano", "Didier", "Cafe", "Cacao", "Cocoa" }));
+        jcombo_cultivo.setForeground(java.awt.Color.white);
+        jcombo_cultivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Maiz", "Frijoles", "Banano", "Didier", "Cafe", "Cacao", "Cocoa" }));
         jcombo_cultivo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jcombo_cultivoItemStateChanged(evt);
             }
         });
 
+        jl_preciocult.setForeground(java.awt.Color.white);
+
+        jl_tiempocult.setForeground(java.awt.Color.white);
+
+        jt_cantidadcomprar.setForeground(java.awt.Color.white);
+
+        jb_comprarcultivo.setBackground(new java.awt.Color(224, 76, 35));
+        jb_comprarcultivo.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
+        jb_comprarcultivo.setForeground(java.awt.Color.white);
         jb_comprarcultivo.setText("Comprar");
         jb_comprarcultivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -674,59 +699,75 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(jb_comprarcultivo, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(131, 131, 131)
+                        .addComponent(jLabel22)))
+                .addContainerGap(142, Short.MAX_VALUE))
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(74, 74, 74)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel24)
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel23)
+                                .addComponent(jLabel25)
+                                .addComponent(jLabel26))
+                            .addGap(27, 27, 27)
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jl_preciocult, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jl_tiempocult, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jcombo_cultivo, 0, 135, Short.MAX_VALUE)
+                                .addComponent(jt_cantidadcomprar, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))))
+                    .addGap(88, 88, 88)))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addComponent(jb_comprarcultivo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(79, 79, 79)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel23)
+                        .addComponent(jcombo_cultivo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel24)
+                        .addComponent(jl_preciocult, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25)
+                        .addComponent(jl_tiempocult, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jt_cantidadcomprar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(133, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout jd_cropsLayout = new javax.swing.GroupLayout(jd_crops.getContentPane());
         jd_crops.getContentPane().setLayout(jd_cropsLayout);
         jd_cropsLayout.setHorizontalGroup(
             jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_cropsLayout.createSequentialGroup()
-                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_cropsLayout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel22))
-                    .addGroup(jd_cropsLayout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24)
-                            .addGroup(jd_cropsLayout.createSequentialGroup()
-                                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel23)
-                                    .addComponent(jLabel25)
-                                    .addComponent(jLabel26))
-                                .addGap(27, 27, 27)
-                                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jl_preciocult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jcombo_cultivo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jl_tiempocult, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jt_cantidadcomprar)))))
-                    .addGroup(jd_cropsLayout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jb_comprarcultivo)))
-                .addContainerGap(85, Short.MAX_VALUE))
+            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jd_cropsLayout.setVerticalGroup(
             jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_cropsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(jcombo_cultivo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(jl_preciocult, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(jl_tiempocult, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_cropsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                    .addComponent(jt_cantidadcomprar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jb_comprarcultivo)
-                .addContainerGap())
+            .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel6.setBackground(new java.awt.Color(33, 69, 124));
@@ -1304,16 +1345,20 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_tryAddPersActionPerformed
 
     private void jb_comprarcultivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_comprarcultivoActionPerformed
-        String tipocult = jcombo_cultivo.getSelectedItem().toString();
-        Double precio = Double.parseDouble(jl_preciocult.getText());
-        int tiempo = Integer.parseInt(jl_tiempocult.getText());
-        int cantidad = Integer.parseInt(jt_cantidadcomprar.getText());
-        if (actual.getDineroTotal() < precio*cantidad) {
-            JOptionPane.showMessageDialog(jd_crops,"No tiene fondos suficientes");
-        }else{
-            Cultivo cultivo = new Cultivo(tipocult, tiempo, precio,true,false);
-            actual.setDineroTotal(actual.getDineroTotal()-(precio*cantidad));
-            JOptionPane.showMessageDialog(jd_crops, "Cultivo creado");
+        if (!"".equals(jt_cantidadcomprar.getText()) || jcombo_cultivo.getSelectedItem() != " ") {
+            String tipocult = jcombo_cultivo.getSelectedItem().toString();
+            Double precio = Double.parseDouble(jl_preciocult.getText());
+            int tiempo = Integer.parseInt(jl_tiempocult.getText());
+            int cantidad = Integer.parseInt(jt_cantidadcomprar.getText());
+            if (actual.getDineroTotal() < precio*cantidad) {
+                JOptionPane.showMessageDialog(jd_crops,"No tiene fondos suficientes");
+            }else{
+                Cultivo cultivo = new Cultivo(tipocult, tiempo, precio,true,false);
+                actual.setDineroTotal(actual.getDineroTotal()-(precio*cantidad));
+                JOptionPane.showMessageDialog(jd_crops, "Cultivo creado");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Invalid input for purchase.");
         }
     }//GEN-LAST:event_jb_comprarcultivoActionPerformed
 
@@ -1414,15 +1459,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VetanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VetanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VetanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VetanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1430,6 +1474,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new VetanaPrincipal().setVisible(true);
             }
@@ -1498,6 +1543,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
