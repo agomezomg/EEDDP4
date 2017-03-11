@@ -1,6 +1,8 @@
 
 import java.io.Serializable;
 
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,25 +17,43 @@ public class Hacienda implements Serializable {
     private VsArrayList Inventario;
     private VsArrayList Cultivos;
     private VsArrayList Personal;
+    private VsArrayList ListaEdges;
     private double DineroTotal = 0;
     private double SaldoBase;
     private String Nombre;
     private String Contra;
     private Queue Transportistas;
     private VsArrayList Clientes;
+    
 
     public Hacienda(double SaldoBase, String Nombre, String Contra) {
         Inventario = new VsArrayList(5);
         Cultivos = new VsArrayList(5);
         Personal = new VsArrayList(5);
         Clientes = new VsArrayList(5);
+        ListaEdges=new VsArrayList(5);
         Transportistas = new Queue();
         this.SaldoBase = SaldoBase;
         this.Nombre = Nombre;
         this.Contra = Contra;
         this.DineroTotal = SaldoBase;
+        
     }
     
+    public Object getListaEdges(int p) {
+        return ListaEdges.get(p);
+    }
+   
+     public void setListaEdges(Object ListaEdges) {
+        this.ListaEdges.insert(ListaEdges, 0);
+    } 
+
+    public VsArrayList getListaEdges() {
+        return ListaEdges;
+    }
+    
+     
+     
     public Object getTransportistas() {
         Object TemporalTrans=Transportistas.DeQueue();
         Transportistas.Queue(TemporalTrans);
