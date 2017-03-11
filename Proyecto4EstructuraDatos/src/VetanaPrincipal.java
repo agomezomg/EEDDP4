@@ -812,6 +812,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Yes");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -822,6 +823,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel30.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel30.setText("Can this client reference others?");
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("No");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1316,7 +1318,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     GrafoClientes.addEdge(actual.getListaEdges(i).toString(),NododelEdge[0],NododelEdge[1]).addAttribute("ui.label",NododelEdge[2]);
 
                 }
-                JOptionPane.showMessageDialog(null,"SI ENTRO AL METODO");
             }    
         } else {
             JOptionPane.showMessageDialog(this, "No existe el usuario");
@@ -1505,6 +1506,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         tf_clientAddDistance.setText("");
         buttonGroup1.clearSelection();
         jd_clientAddMode.setVisible(false);
+        buttonGroup1.clearSelection();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
