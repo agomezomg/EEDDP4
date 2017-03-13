@@ -76,6 +76,19 @@ public class Hacienda implements Serializable {
         return Clientes;
     }
 
+    public VsArrayList getCultivos() {
+        return Cultivos;
+    }
+    public Cultivo getCultivos(int i) {
+        return (Cultivo)Cultivos.get(i);
+    }
+
+    public void setCultivos(VsArrayList Cultivos) {
+        this.Cultivos = Cultivos;
+    }
+    public void setCultivos(Cultivo Cultivos) {
+        this.Cultivos.insert(Cultivos, 0);
+    }
     
     
     public double getDineroTotal() {

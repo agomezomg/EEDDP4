@@ -28,8 +28,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        
-        
+
     }
 
     /**
@@ -137,19 +136,19 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jd_harvest1 = new javax.swing.JDialog();
         jPanel8 = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        jcombo_harcrop = new javax.swing.JComboBox<>();
         jLabel37 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jd_harvest2 = new javax.swing.JDialog();
         jPanel9 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        jcombo_harcrop1 = new javax.swing.JComboBox<>();
         jLabel39 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jd_harvest3 = new javax.swing.JDialog();
         jPanel10 = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jcombo_harcrop2 = new javax.swing.JComboBox<>();
         jLabel41 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -1004,9 +1003,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel36.setForeground(java.awt.Color.white);
         jLabel36.setText("Harvest");
 
-        jComboBox4.setBackground(new java.awt.Color(224, 76, 35));
-        jComboBox4.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jComboBox4.setForeground(java.awt.Color.white);
+        jcombo_harcrop.setBackground(new java.awt.Color(224, 76, 35));
+        jcombo_harcrop.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jcombo_harcrop.setForeground(java.awt.Color.white);
 
         jLabel37.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel37.setForeground(java.awt.Color.white);
@@ -1016,6 +1015,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButton5.setForeground(java.awt.Color.white);
         jButton5.setText("GO!");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1027,7 +1031,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(jLabel37)
                         .addGap(53, 53, 53)
-                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jcombo_harcrop, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(jLabel36))
@@ -1043,7 +1047,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel36)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcombo_harcrop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel37))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jButton5)
@@ -1067,9 +1071,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel38.setForeground(java.awt.Color.white);
         jLabel38.setText("Harvest");
 
-        jComboBox5.setBackground(new java.awt.Color(224, 76, 35));
-        jComboBox5.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jComboBox5.setForeground(java.awt.Color.white);
+        jcombo_harcrop1.setBackground(new java.awt.Color(224, 76, 35));
+        jcombo_harcrop1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jcombo_harcrop1.setForeground(java.awt.Color.white);
 
         jLabel39.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel39.setForeground(java.awt.Color.white);
@@ -1079,6 +1083,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButton6.setForeground(java.awt.Color.white);
         jButton6.setText("GO!");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1090,7 +1099,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(jLabel39)
                         .addGap(53, 53, 53)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jcombo_harcrop1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(jLabel38))
@@ -1106,7 +1115,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel38)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcombo_harcrop1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel39))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jButton6)
@@ -1130,9 +1139,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel40.setForeground(java.awt.Color.white);
         jLabel40.setText("Harvest");
 
-        jComboBox6.setBackground(new java.awt.Color(224, 76, 35));
-        jComboBox6.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jComboBox6.setForeground(java.awt.Color.white);
+        jcombo_harcrop2.setBackground(new java.awt.Color(224, 76, 35));
+        jcombo_harcrop2.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jcombo_harcrop2.setForeground(java.awt.Color.white);
 
         jLabel41.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jLabel41.setForeground(java.awt.Color.white);
@@ -1142,6 +1151,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jButton7.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jButton7.setForeground(java.awt.Color.white);
         jButton7.setText("GO!");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1153,7 +1167,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addComponent(jLabel41)
                         .addGap(53, 53, 53)
-                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jcombo_harcrop2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(jLabel40))
@@ -1169,7 +1183,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel40)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcombo_harcrop2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel41))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jButton7)
@@ -1302,30 +1316,30 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             jf_adminView.setResizable(false);
             jf_adminView.setVisible(true);
             this.setVisible(false);
-            HiloSimulacion H = new HiloSimulacion(jl_dia);
+            H = new HiloSimulacion(jl_dia, jprogress_primerbarra, jprogress_segundbarra, jprogress_tercerbarra);
             Thread Simulacion = new Thread(H);
             Simulacion.start();
             //Asignacion del grafo
-            if(actual.getListaEdges().isEmpty()==true){
-                GrafoClientes.addNode(actual.getNombre()).addAttribute("ui.label",actual.getNombre());
+            if (actual.getListaEdges().isEmpty() == true) {
+                GrafoClientes.addNode(actual.getNombre()).addAttribute("ui.label", actual.getNombre());
 
-                for (int i = 0; i <actual.getClientes().getSize(); i++) {
-                    GrafoClientes.addNode(((Cliente)actual.getClientes(i)).getNombre()).addAttribute("ui.label",((Cliente)actual.getClientes(i)).getNombre());
+                for (int i = 0; i < actual.getClientes().getSize(); i++) {
+                    GrafoClientes.addNode(((Cliente) actual.getClientes(i)).getNombre()).addAttribute("ui.label", ((Cliente) actual.getClientes(i)).getNombre());
                 }
-                String[] NododelEdge=new String[3];
+                String[] NododelEdge = new String[3];
                 for (int i = 0; i < actual.getListaEdges().getSize(); i++) {
-                    NododelEdge=actual.getListaEdges(i).toString().split("/");
-                    GrafoClientes.addEdge(actual.getListaEdges(i).toString(),NododelEdge[0],NododelEdge[1]).addAttribute("ui.label",NododelEdge[2]);
+                    NododelEdge = actual.getListaEdges(i).toString().split("/");
+                    GrafoClientes.addEdge(actual.getListaEdges(i).toString(), NododelEdge[0], NododelEdge[1]).addAttribute("ui.label", NododelEdge[2]);
 
                 }
-            }    
+            }
         } else {
             JOptionPane.showMessageDialog(this, "No existe el usuario");
         }
 
         jtf_userInput.setText("");
         jtf_passinput.setText("");
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -1336,6 +1350,10 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jb_harvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvestActionPerformed
+        System.out.println(actual.getCultivos().getSize());
+        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+            jcombo_harcrop.addItem(actual.getCultivos(i).toString());
+        }
         jd_harvest1.setModal(true);
         jd_harvest1.pack();
         jd_harvest1.setVisible(true);
@@ -1421,13 +1439,19 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             Double precio = Double.parseDouble(jl_preciocult.getText());
             int tiempo = Integer.parseInt(jl_tiempocult.getText());
             int cantidad = Integer.parseInt(jt_cantidadcomprar.getText());
-            if (actual.getDineroTotal() < precio*cantidad) {
-                JOptionPane.showMessageDialog(jd_crops,"No tiene fondos suficientes");
-            }else{
-                Cultivo cultivo = new Cultivo(tipocult, tiempo, precio,true,false);
-                actual.setDineroTotal(actual.getDineroTotal()-(precio*cantidad));
+            if (actual.getDineroTotal() < precio * cantidad) {
+                JOptionPane.showMessageDialog(jd_crops, "No tiene fondos suficientes");
+            } else {
+                Cultivo cultivo = new Cultivo(tipocult, tiempo, precio, true, cantidad, false);
+                actual.setCultivos(cultivo);
+                actual.setDineroTotal(actual.getDineroTotal() - (precio * cantidad));
                 JOptionPane.showMessageDialog(jd_crops, "Cultivo creado");
-                jl_saldoincial1.setText(actual.getDineroTotal()+"");
+                jl_saldoincial1.setText(actual.getDineroTotal() + "");
+                jcombo_cultivo.setSelectedIndex(0);
+                jl_preciocult.setText("");
+                jl_tiempocult.setText("");
+                jt_cantidadcomprar.setText("");
+                jd_crops.setVisible(false);
             }
         } else {
             JOptionPane.showMessageDialog(this, "Invalid input for purchase.");
@@ -1436,38 +1460,38 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
     private void jcombo_cultivoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcombo_cultivoItemStateChanged
         String culti = jcombo_cultivo.getSelectedItem().toString();
-        switch(culti){
-            case "Maiz":{
+        switch (culti) {
+            case "Maiz": {
                 jl_preciocult.setText("275.0");
                 jl_tiempocult.setText("40");
                 break;
             }
-            case "Frijoles":{
+            case "Frijoles": {
                 jl_preciocult.setText("900.0");
                 jl_tiempocult.setText("20");
                 break;
             }
-            case "Cafe":{
+            case "Cafe": {
                 jl_preciocult.setText("2000.0");
                 jl_tiempocult.setText("80");
                 break;
             }
-            case "Banano":{
+            case "Banano": {
                 jl_preciocult.setText("2300.0");
                 jl_tiempocult.setText("70");
                 break;
             }
-            case "Cocoa":{
+            case "Cocoa": {
                 jl_preciocult.setText("500");
                 jl_tiempocult.setText("54");
                 break;
             }
-            case "Cacao":{
+            case "Cacao": {
                 jl_preciocult.setText("3000.0");
                 jl_tiempocult.setText("60");
                 break;
             }
-            case "Didier":{
+            case "Didier": {
                 jl_preciocult.setText("50000.0");
                 jl_tiempocult.setText("5");
                 break;
@@ -1476,30 +1500,42 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jcombo_cultivoItemStateChanged
 
     private void jb_harvest2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest2ActionPerformed
-        // TODO add your handling code here:
+        System.out.println(actual.getCultivos().getSize());
+        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+            jcombo_harcrop1.addItem(actual.getCultivos(i).toString());
+        }
+        jd_harvest2.setModal(true);
+        jd_harvest2.pack();
+        jd_harvest2.setVisible(true);
     }//GEN-LAST:event_jb_harvest2ActionPerformed
 
     private void jb_harvest3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest3ActionPerformed
-        // TODO add your handling code here:
+        System.out.println(actual.getCultivos().getSize());
+        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+            jcombo_harcrop2.addItem(actual.getCultivos(i).toString());
+        }
+        jd_harvest3.setModal(true);
+        jd_harvest3.pack();
+        jd_harvest3.setVisible(true);
     }//GEN-LAST:event_jb_harvest3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if(GrafoClientes.getNode(actual.getNombre())==null){
-           GrafoClientes.addNode(actual.getNombre()).addAttribute("ui.label",actual.getNombre());; 
+        if (GrafoClientes.getNode(actual.getNombre()) == null) {
+            GrafoClientes.addNode(actual.getNombre()).addAttribute("ui.label", actual.getNombre());;
         }
         actual.setClientes(new Cliente(tf_clientAddName.getText(), Double.parseDouble(tf_clientAddDistance.getText())));
-        GrafoClientes.addNode(tf_clientAddName.getText()).addAttribute("ui.label",tf_clientAddName.getText());
-        if (jRadioButton1.isSelected() == true&&jComboBoxClients.getSelectedItem().toString()=="Create Other") {
+        GrafoClientes.addNode(tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddName.getText());
+        if (jRadioButton1.isSelected() == true && jComboBoxClients.getSelectedItem().toString() == "Create Other") {
             actual.setClientes(new Cliente(tf_clientAddName2.getText(), Double.parseDouble(tf_clientAddDistance2.getText())));
-            GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddName2.getText());;
-            GrafoClientes.addEdge(tf_clientAddName.getText()+tf_clientAddName2.getText(),tf_clientAddName.getText(),tf_clientAddName2.getText()).addAttribute("ui.label",tf_clientAddDistance2.getText());
-            actual.setListaEdges(tf_clientAddName.getText()+"/"+tf_clientAddName2.getText()+"/"+tf_clientAddDistance2.getText());
-        }else if (jRadioButton1.isSelected()){
-            GrafoClientes.addEdge(tf_clientAddName.getText()+tf_clientAddName2.getText(),tf_clientAddName.getText(),tf_clientAddName2.getText());
-            actual.setListaEdges(tf_clientAddName.getText()+"/"+tf_clientAddName2.getText()+"/"+tf_clientAddDistance2.getText());
+            GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddName2.getText());;
+            GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddDistance2.getText());
+            actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
+        } else if (jRadioButton1.isSelected()) {
+            GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText());
+            actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         }
-        GrafoClientes.addEdge(actual.getNombre()+tf_clientAddName.getText(),actual.getNombre(),tf_clientAddName.getText()).addAttribute("ui.label",tf_clientAddDistance.getText());
-        actual.setListaEdges(actual.getNombre()+"/"+tf_clientAddName.getText()+"/"+tf_clientAddDistance.getText());
+        GrafoClientes.addEdge(actual.getNombre() + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
+        actual.setListaEdges(actual.getNombre() + "/" + tf_clientAddName.getText() + "/" + tf_clientAddDistance.getText());
         tf_clientAddName2.setText("");
         tf_clientAddDistance2.setText("");
         tf_clientAddName.setText("");
@@ -1527,7 +1563,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jComboBoxClientsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxClientsItemStateChanged
-         if (jComboBoxClients.getItemCount() > 0 && jComboBoxClients.getSelectedItem().toString() == "Create Other") {
+        if (jComboBoxClients.getItemCount() > 0 && jComboBoxClients.getSelectedItem().toString() == "Create Other") {
             tf_clientAddName2.setEnabled(true);
             tf_clientAddName2.setEditable(true);
             tf_clientAddDistance2.setEnabled(true);
@@ -1543,6 +1579,33 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private void jb_viewGraphsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_viewGraphsActionPerformed
         GrafoClientes.display().setCloseFramePolicy(Viewer.CloseFramePolicy.CLOSE_VIEWER);
     }//GEN-LAST:event_jb_viewGraphsActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        Cultivo temp = actual.getCultivos(jcombo_harcrop.getSelectedIndex());
+        actual.getCultivos().remove(jcombo_harcrop.getSelectedIndex());
+        H.setCult1(temp);
+        H.setActivo1(true);
+        JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+        jd_harvest1.setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Cultivo temp = actual.getCultivos(jcombo_harcrop1.getSelectedIndex());
+        actual.getCultivos().remove(jcombo_harcrop1.getSelectedIndex());
+        H.setCult2(temp);
+        H.setActivo2(true);
+        JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+        jd_harvest2.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        Cultivo temp = actual.getCultivos(jcombo_harcrop2.getSelectedIndex());
+        actual.getCultivos().remove(jcombo_harcrop2.getSelectedIndex());
+        H.setCult3(temp);
+        H.setActivo3(true);
+        JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+        jd_harvest3.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     public boolean guardar(Hacienda guarda) {
         try {
@@ -1599,7 +1662,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        
+
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1626,9 +1689,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBoxClients;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1703,6 +1763,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_viewGraphs;
     private javax.swing.JButton jb_viewStats;
     private javax.swing.JComboBox<String> jcombo_cultivo;
+    private javax.swing.JComboBox<String> jcombo_harcrop;
+    private javax.swing.JComboBox<String> jcombo_harcrop1;
+    private javax.swing.JComboBox<String> jcombo_harcrop2;
     private javax.swing.JDialog jd_addPersonnel;
     private javax.swing.JDialog jd_allStatView;
     private javax.swing.JDialog jd_clientAddMode;
@@ -1737,5 +1800,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private Hacienda actual;
     Graph GrafoClientes = new SingleGraph("GrafoClientes");
-    
+    HiloSimulacion H;
+
 }
