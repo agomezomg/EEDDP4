@@ -78,7 +78,7 @@ public class Cultivo implements Serializable{
 
     @Override
     public String toString() {
-        return "Cultivo{" + "TipoProducto=" + TipoProducto + ", TiempoCultivarse=" + TiempoCultivarse + ", Precio=" + Precio + ", EstadoVida=" + EstadoVida + ", TienePlaga=" + TienePlaga + '}';
+        return TipoProducto + " Cantidad: "+cantidad;
     }
     
     

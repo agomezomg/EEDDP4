@@ -1316,7 +1316,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             jf_adminView.setResizable(false);
             jf_adminView.setVisible(true);
             this.setVisible(false);
-            H = new HiloSimulacion(jl_dia, jprogress_primerbarra, jprogress_segundbarra, jprogress_tercerbarra);
+            H = new HiloSimulacion(jl_dia, jprogress_primerbarra, jprogress_segundbarra, jprogress_tercerbarra,jButton5,jButton6,jButton7,actual);
             hiloCliente= new HiloCliente(actual.getClientes(),actual.getPersonal(),jl_dia,actual);
             Clientes=new Thread(hiloCliente);
             Simulacion = new Thread(H);
@@ -1354,7 +1354,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jb_harvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvestActionPerformed
-        System.out.println(actual.getCultivos().getSize());
+        jcombo_harcrop.removeAllItems();
         for (int i = 0; i < actual.getCultivos().getSize(); i++) {
             jcombo_harcrop.addItem(actual.getCultivos(i).toString());
         }
@@ -1514,7 +1514,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jcombo_cultivoItemStateChanged
 
     private void jb_harvest2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest2ActionPerformed
-        System.out.println(actual.getCultivos().getSize());
+        jcombo_harcrop1.removeAllItems();
         for (int i = 0; i < actual.getCultivos().getSize(); i++) {
             jcombo_harcrop1.addItem(actual.getCultivos(i).toString());
         }
@@ -1524,7 +1524,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_harvest2ActionPerformed
 
     private void jb_harvest3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest3ActionPerformed
-        System.out.println(actual.getCultivos().getSize());
+        jcombo_harcrop2.removeAllItems();
         for (int i = 0; i < actual.getCultivos().getSize(); i++) {
             jcombo_harcrop2.addItem(actual.getCultivos(i).toString());
         }
@@ -1603,6 +1603,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         H.setCult1(temp);
         H.setActivo1(true);
         JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+        jButton5.setEnabled(false);
         jd_harvest1.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -1612,6 +1613,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         H.setCult2(temp);
         H.setActivo2(true);
         JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+        jButton6.setEnabled(false);
         jd_harvest2.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -1621,6 +1623,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         H.setCult3(temp);
         H.setActivo3(true);
         JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+        jButton7.setEnabled(false);
         jd_harvest3.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -1637,7 +1640,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         }
         return true;
     }
-
+    public Hacienda getHacienda(){
+        return actual;
+    }
     public boolean leer(String nombre, String Contra) {
         try {
             //Stream para leer archivo
