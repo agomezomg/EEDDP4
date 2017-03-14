@@ -16,17 +16,20 @@ public class Cliente implements Serializable {
     private String PedidoCultivo;
     private int Pago;
     private String FechaPedido;
+    private int CantidadPedida;
     private boolean PedidoenProceso;
     private double kmAway;
 
-    public Cliente(String Nombre, String PedidoCultivo, int Pago, String FechaPedido, boolean PedidoenProceso) {
+    public Cliente(String Nombre, String PedidoCultivo, int Pago, String FechaPedido, boolean PedidoenProceso,int CantidadPedida) {
         this.Nombre = Nombre;
         this.PedidoCultivo = PedidoCultivo;
         this.Pago = Pago;
         this.FechaPedido = FechaPedido;
         this.PedidoenProceso = PedidoenProceso;
+        this.CantidadPedida=CantidadPedida;
     }
 
+    
     public Cliente(String Nombre, double kmAway) {
         this.Nombre = Nombre;
         this.kmAway = kmAway;
@@ -40,7 +43,16 @@ public class Cliente implements Serializable {
         return kmAway;
     }
 
-        
+    public int getCantidadPedida() {
+        return CantidadPedida;
+    }
+
+    public void setCantidadPedida(int CantidadPedida) {
+        this.CantidadPedida = CantidadPedida;
+    }
+
+    
+    
     public String getNombre() {
         return Nombre;
     }
@@ -83,7 +95,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" + "Nombre=" + Nombre + ", PedidoCultivo=" + PedidoCultivo + ", Pago=" + Pago + ", FechaPedido=" + FechaPedido + ", PedidoenProceso=" + PedidoenProceso + '}';
+        return "Nombre: " + Nombre + ",PedidoCultivo: " + PedidoCultivo + ", Pago por unidad :" + Pago + "Cantidad Pedida:"+ CantidadPedida;
     }
 
 }

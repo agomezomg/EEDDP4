@@ -7,6 +7,7 @@ public class Cultivo implements Serializable{
     private int TiempoCultivarse;
     private double Precio;
     private boolean EstadoVida;
+    private int cantidad;
     private boolean TienePlaga;
 
     public Cultivo(String TipoProducto, int TiempoCultivarse, double Precio, boolean EstadoVida, boolean TienePlaga) {
@@ -16,6 +17,24 @@ public class Cultivo implements Serializable{
         this.EstadoVida = EstadoVida;
         this.TienePlaga = TienePlaga;
     }
+
+    public Cultivo(String TipoProducto, int TiempoCultivarse, double Precio, boolean EstadoVida, int cantidad, boolean TienePlaga) {
+        this.TipoProducto = TipoProducto;
+        this.TiempoCultivarse = TiempoCultivarse;
+        this.Precio = Precio;
+        this.EstadoVida = EstadoVida;
+        this.cantidad = cantidad;
+        this.TienePlaga = TienePlaga;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
 
     public String getTipoProducto() {
         return TipoProducto;
