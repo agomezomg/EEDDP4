@@ -51,6 +51,10 @@ public class Hacienda implements Serializable {
     public VsArrayList getListaEdges() {
         return ListaEdges;
     }
+
+    public VsArrayList getPersonal() {
+        return Personal;
+    }
     
      
      

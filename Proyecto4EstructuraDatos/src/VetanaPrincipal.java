@@ -130,7 +130,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jd_clientOrderView = new javax.swing.JDialog();
         jPanel7 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBoxPedidos = new javax.swing.JComboBox<>();
         jLabel35 = new javax.swing.JLabel();
         jb_clientOrdersGO = new javax.swing.JButton();
         jd_harvest1 = new javax.swing.JDialog();
@@ -943,8 +943,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel33.setForeground(java.awt.Color.white);
         jLabel33.setText("Client Orders");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel35.setForeground(java.awt.Color.white);
         jLabel35.setText("View all orders in place below:");
 
@@ -966,7 +964,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel35)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(65, 65, 65)
                                 .addComponent(jb_clientOrdersGO, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -980,7 +978,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel35)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxPedidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jb_clientOrdersGO, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -1317,8 +1315,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             jf_adminView.setVisible(true);
             this.setVisible(false);
             H = new HiloSimulacion(jl_dia, jprogress_primerbarra, jprogress_segundbarra, jprogress_tercerbarra,jButton5,jButton6,jButton7,actual);
+            hiloCliente= new HiloCliente(actual.getClientes(),actual.getPersonal(),jl_dia,actual);
+            Thread Clientes=new Thread(hiloCliente);
             Thread Simulacion = new Thread(H);
             Simulacion.start();
+            Clientes.start();
             //Asignacion del grafo
             if (actual.getListaEdges().isEmpty() == true) {
                 GrafoClientes.addNode(actual.getNombre()).addAttribute("ui.label", actual.getNombre());
@@ -1410,6 +1411,16 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jd_clientOrderView.pack();
         jd_clientOrderView.setLocationRelativeTo(jf_adminView);
         jd_clientOrderView.setVisible(true);
+        jComboBoxPedidos.removeAllItems();
+        
+        for (int i = 0; i < actual.getClientes().getSize(); i++) {
+            jComboBoxPedidos.addItem(((Cliente)actual.getClientes(i)).toString());
+        }
+        
+        
+        
+    
+        
     }//GEN-LAST:event_jb_harvest1ActionPerformed
 
     private void jb_tryAddPersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_tryAddPersActionPerformed
@@ -1549,7 +1560,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jComboBoxClients.setEnabled(true);
         jComboBoxClients.removeAllItems();
         for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            jComboBoxClients.addItem(actual.getClientes(i).toString());
+            jComboBoxClients.addItem(((Cliente)actual.getClientes(i)).getNombre());
 
         }
         jComboBoxClients.addItem("Create Other");
@@ -1693,8 +1704,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBoxClients;
+    private javax.swing.JComboBox<String> jComboBoxPedidos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1806,5 +1817,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private Hacienda actual;
     Graph GrafoClientes = new SingleGraph("GrafoClientes");
     HiloSimulacion H;
+    HiloCliente hiloCliente;
 
 }
