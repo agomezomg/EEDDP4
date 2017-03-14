@@ -9,6 +9,8 @@ import javax.swing.WindowConstants;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
+import org.graphstream.algorithm.Dijkstra;
+import org.graphstream.algorithm.Kruskal;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -1316,8 +1318,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             this.setVisible(false);
             H = new HiloSimulacion(jl_dia, jprogress_primerbarra, jprogress_segundbarra, jprogress_tercerbarra);
             hiloCliente= new HiloCliente(actual.getClientes(),actual.getPersonal(),jl_dia,actual);
-            Thread Clientes=new Thread(hiloCliente);
-            Thread Simulacion = new Thread(H);
+            Clientes=new Thread(hiloCliente);
+            Simulacion = new Thread(H);
             Simulacion.start();
             Clientes.start();
             //Asignacion del grafo
@@ -1331,7 +1333,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 for (int i = 0; i < actual.getListaEdges().getSize(); i++) {
                     NododelEdge = actual.getListaEdges(i).toString().split("/");
                     GrafoClientes.addEdge(actual.getListaEdges(i).toString(), NododelEdge[0], NododelEdge[1]).addAttribute("ui.label", NododelEdge[2]);
-
+                    GrafoClientes.getNode(actual.getListaEdges(i).toString()).addAttribute("Distancia",NododelEdge[2]);
                 }
             }
         } else {
@@ -1348,6 +1350,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         this.setVisible(true);
         jf_adminView.setVisible(false);
         guardar(actual);
+        hiloCliente.setVivo(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jb_harvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvestActionPerformed
@@ -1540,12 +1543,15 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             actual.setClientes(new Cliente(tf_clientAddName2.getText(), Double.parseDouble(tf_clientAddDistance2.getText())));
             GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddName2.getText());;
             GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddDistance2.getText());
+            GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia",tf_clientAddDistance2.getText());
             actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         } else if (jRadioButton1.isSelected()) {
             GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText());
+            GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia",tf_clientAddDistance2.getText());
             actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         }
         GrafoClientes.addEdge(actual.getNombre() + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
+        GrafoClientes.getNode(actual.getNombre() + tf_clientAddName.getText()).addAttribute("Distancia",tf_clientAddDistance.getText());
         actual.setListaEdges(actual.getNombre() + "/" + tf_clientAddName.getText() + "/" + tf_clientAddDistance.getText());
         tf_clientAddName2.setText("");
         tf_clientAddDistance2.setText("");
@@ -1813,5 +1819,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     Graph GrafoClientes = new SingleGraph("GrafoClientes");
     HiloSimulacion H;
     HiloCliente hiloCliente;
+    Thread Clientes;
+    Thread Simulacion;
+    
+    
 
 }
