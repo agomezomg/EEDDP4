@@ -1561,6 +1561,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="GO!"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_clientOrdersGOActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -2053,6 +2056,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="GO!"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_clientOrdersGO1ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -2167,6 +2173,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="GO!"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_clientOrdersGO2ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

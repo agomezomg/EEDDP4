@@ -1022,6 +1022,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jb_clientOrdersGO.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jb_clientOrdersGO.setForeground(java.awt.Color.white);
         jb_clientOrdersGO.setText("GO!");
+        jb_clientOrdersGO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_clientOrdersGOActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1286,6 +1291,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jb_clientOrdersGO1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jb_clientOrdersGO1.setForeground(java.awt.Color.white);
         jb_clientOrdersGO1.setText("GO!");
+        jb_clientOrdersGO1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_clientOrdersGO1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1346,6 +1356,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jb_clientOrdersGO2.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         jb_clientOrdersGO2.setForeground(java.awt.Color.white);
         jb_clientOrdersGO2.setText("GO!");
+        jb_clientOrdersGO2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_clientOrdersGO2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1508,12 +1523,15 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             jf_adminView.setResizable(false);
             jf_adminView.setVisible(true);
             this.setVisible(false);
-            H = new HiloSimulacion(jl_dia, jprogress_primerbarra, jprogress_segundbarra, jprogress_tercerbarra,jButton5,jButton6,jButton7,actual);
-            hiloCliente= new HiloCliente(actual.getClientes(),actual.getPersonal(),jl_dia,actual);
-            Clientes=new Thread(hiloCliente);
+            H = new HiloSimulacion(jl_dia, jprogress_primerbarra, jprogress_segundbarra, jprogress_tercerbarra, jButton5, jButton6, jButton7, actual);
+            hiloCliente = new HiloCliente(actual.getClientes(), actual.getPersonal(), jl_dia, actual);
+            Htransporte = new HiloTransporte(jprogress_primerbarra1, jprogress_segundbarra1, jprogress_tercerbarra1, jb_clientOrdersGO1, jb_clientOrdersGO2, jb_clientOrdersGO, actual, jl_saldoincial1);
+            Transporte = new Thread(Htransporte);
+            Clientes = new Thread(hiloCliente);
             Simulacion = new Thread(H);
             Simulacion.start();
             Clientes.start();
+            Transporte.start();
             //Asignacion del grafo
             if (actual.getListaEdges().isEmpty() == true) {
                 GrafoClientes.addNode(actual.getNombre()).addAttribute("ui.label", actual.getNombre());
@@ -1525,7 +1543,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 for (int i = 0; i < actual.getListaEdges().getSize(); i++) {
                     NododelEdge = actual.getListaEdges(i).toString().split("/");
                     GrafoClientes.addEdge(actual.getListaEdges(i).toString(), NododelEdge[0], NododelEdge[1]).addAttribute("ui.label", NododelEdge[2]);
-                    GrafoClientes.getNode(actual.getListaEdges(i).toString()).addAttribute("Distancia",NododelEdge[2]);
+                    GrafoClientes.getNode(actual.getListaEdges(i).toString()).addAttribute("Distancia", NododelEdge[2]);
                 }
             }
         } else {
@@ -1606,12 +1624,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jd_clientOrderView3.pack();
         jd_clientOrderView3.setLocationRelativeTo(jf_adminView);
         jd_clientOrderView3.setVisible(true);
-        jComboBoxPedidos2.removeAllItems();
-        
+        jComboBoxPedidos.removeAllItems();
         for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            jComboBoxPedidos2.addItem(((Cliente)actual.getClientes(i)).toString());
+            Cliente temp = (Cliente) actual.getClientes(i);
+            if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
+                jComboBoxPedidos.addItem(((Cliente) actual.getClientes(i)).toString());
+            }
         }
-        
+
     }//GEN-LAST:event_jb_harvest1ActionPerformed
 
     private void jb_tryAddPersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_tryAddPersActionPerformed
@@ -1731,15 +1751,15 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             actual.setClientes(new Cliente(tf_clientAddName2.getText(), Double.parseDouble(tf_clientAddDistance2.getText())));
             GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddName2.getText());;
             GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddDistance2.getText());
-            GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia",tf_clientAddDistance2.getText());
+            GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia", tf_clientAddDistance2.getText());
             actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         } else if (jRadioButton1.isSelected()) {
             GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText());
-            GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia",tf_clientAddDistance2.getText());
+            GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia", tf_clientAddDistance2.getText());
             actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         }
-        GrafoClientes.addEdge(actual.getNombre() + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
-        GrafoClientes.getNode(actual.getNombre() + tf_clientAddName.getText()).addAttribute("Distancia",tf_clientAddDistance.getText());
+        GrafoClientes.addEdge(actual.getNombre() + "" + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
+        GrafoClientes.getNode(actual.getNombre() + "" + tf_clientAddName.getText()).addAttribute("Distancia", tf_clientAddDistance.getText());
         actual.setListaEdges(actual.getNombre() + "/" + tf_clientAddName.getText() + "/" + tf_clientAddDistance.getText());
         tf_clientAddName2.setText("");
         tf_clientAddDistance2.setText("");
@@ -1754,7 +1774,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jComboBoxClients.setEnabled(true);
         jComboBoxClients.removeAllItems();
         for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            jComboBoxClients.addItem(((Cliente)actual.getClientes(i)).getNombre());
+            jComboBoxClients.addItem(((Cliente) actual.getClientes(i)).getNombre());
 
         }
         jComboBoxClients.addItem("Create Other");
@@ -1816,19 +1836,111 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jb_harvest4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest4ActionPerformed
-        // TODO add your handling code here:
+        jd_clientOrderView1.pack();
+        jd_clientOrderView1.setLocationRelativeTo(jf_adminView);
+        jd_clientOrderView1.setVisible(true);
+        jComboBoxPedidos1.removeAllItems();
+        for (int i = 0; i < actual.getClientes().getSize(); i++) {
+            Cliente temp = (Cliente) actual.getClientes(i);
+            if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
+                jComboBoxPedidos1.addItem(((Cliente) actual.getClientes(i)).toString());
+            }
+        }
     }//GEN-LAST:event_jb_harvest4ActionPerformed
 
     private void jb_harvest5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest5ActionPerformed
-         jd_clientOrderView1.pack();
-        jd_clientOrderView1.setLocationRelativeTo(jf_adminView);
-        jd_clientOrderView1.setVisible(true);
-        jComboBoxPedidos.removeAllItems();
-        
+        jd_clientOrderView2.pack();
+        jd_clientOrderView2.setLocationRelativeTo(jf_adminView);
+        jd_clientOrderView2.setVisible(true);
+        jComboBoxPedidos2.removeAllItems();
         for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            jComboBoxPedidos1.addItem(((Cliente)actual.getClientes(i)).toString());
+            Cliente temp = (Cliente) actual.getClientes(i);
+            if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
+                jComboBoxPedidos2.addItem(((Cliente) actual.getClientes(i)).toString());
+            }
         }
     }//GEN-LAST:event_jb_harvest5ActionPerformed
+
+    private void jb_clientOrdersGO2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGO2ActionPerformed
+        int total = 0;
+        String temp = jComboBoxPedidos2.getSelectedItem().toString();
+        int pos = 0;
+        for (int i = 0; i < actual.getClientes().getSize(); i++) {
+            if (actual.getClientes(i).toString().equals(temp)) {
+                pos = i;
+            }
+        }
+        Cliente cliente = (Cliente) actual.getClientes(pos);
+        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+            if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
+                total += actual.getCultivos(i).getCantidad();
+            }
+        }
+        if (total >= cliente.getCantidadPedida()) {
+            Htransporte.setCliente2(cliente);
+            Htransporte.setActivo2(true);
+            //Htransporte.setTrans1((Transporte) actual.getTransportistas());
+            JOptionPane.showMessageDialog(null, "Envio iniciado");
+            jb_clientOrdersGO2.setEnabled(false);
+            jd_clientOrderView2.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
+        }  
+    }//GEN-LAST:event_jb_clientOrdersGO2ActionPerformed
+
+    private void jb_clientOrdersGO1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGO1ActionPerformed
+        int total = 0;
+        String temp = jComboBoxPedidos1.getSelectedItem().toString();
+        int pos = 0;
+        for (int i = 0; i < actual.getClientes().getSize(); i++) {
+            if (actual.getClientes(i).toString().equals(temp)) {
+                pos = i;
+            }
+        }
+        Cliente cliente = (Cliente) actual.getClientes(pos);
+        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+            if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
+                total += actual.getCultivos(i).getCantidad();
+            }
+        }
+        if (total >= cliente.getCantidadPedida()) {
+            Htransporte.setCliente1(cliente);
+            Htransporte.setActivo1(true);
+            //Htransporte.setTrans1((Transporte) actual.getTransportistas());
+            JOptionPane.showMessageDialog(null, "Envio iniciado");
+            jb_clientOrdersGO1.setEnabled(false);
+            jd_clientOrderView1.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
+        }
+    }//GEN-LAST:event_jb_clientOrdersGO1ActionPerformed
+
+    private void jb_clientOrdersGOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGOActionPerformed
+        int total = 0;
+        String temp = jComboBoxPedidos.getSelectedItem().toString();
+        int pos = 0;
+        for (int i = 0; i < actual.getClientes().getSize(); i++) {
+            if (actual.getClientes(i).toString().equals(temp)) {
+                pos = i;
+            }
+        }
+        Cliente cliente = (Cliente) actual.getClientes(pos);
+        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+            if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
+                total += actual.getCultivos(i).getCantidad();
+            }
+        }
+        if (total >= cliente.getCantidadPedida()) {
+            Htransporte.setCliente3(cliente);
+            Htransporte.setActivo3(true);
+            //Htransporte.setTrans1((Transporte) actual.getTransportistas());
+            JOptionPane.showMessageDialog(null, "Envio iniciado");
+            jb_clientOrdersGO.setEnabled(false);
+            jd_clientOrderView3.setVisible(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
+        }
+    }//GEN-LAST:event_jb_clientOrdersGOActionPerformed
 
     public boolean guardar(Hacienda guarda) {
         try {
@@ -1843,9 +1955,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         }
         return true;
     }
-    public Hacienda getHacienda(){
+
+    public Hacienda getHacienda() {
         return actual;
     }
+
     public boolean leer(String nombre, String Contra) {
         try {
             //Stream para leer archivo
@@ -2045,9 +2159,9 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     Graph GrafoClientes = new SingleGraph("GrafoClientes");
     HiloSimulacion H;
     HiloCliente hiloCliente;
+    HiloTransporte Htransporte;
     Thread Clientes;
     Thread Simulacion;
-    
-    
+    Thread Transporte;
 
 }
