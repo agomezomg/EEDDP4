@@ -4,6 +4,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 import org.graphstream.graph.Graph;
@@ -11,6 +13,7 @@ import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.view.Viewer;
 import org.graphstream.algorithm.Dijkstra;
 import org.graphstream.algorithm.Kruskal;
+import org.graphstream.graph.Path;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -321,6 +324,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         });
 
         jBKruskal.setText("MI BOTON NO TOCAR");
+        jBKruskal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBKruskalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -1543,7 +1551,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 for (int i = 0; i < actual.getListaEdges().getSize(); i++) {
                     NododelEdge = actual.getListaEdges(i).toString().split("/");
                     GrafoClientes.addEdge(actual.getListaEdges(i).toString(), NododelEdge[0], NododelEdge[1]).addAttribute("ui.label", NododelEdge[2]);
+<<<<<<< HEAD
                     GrafoClientes.getNode(actual.getListaEdges(i).toString()).addAttribute("Distancia", NododelEdge[2]);
+=======
+                    GrafoClientes.getEdge(actual.getListaEdges(i).toString()).addAttribute("Distancia",NododelEdge[2]);
+>>>>>>> d96e47c99179d181685d71bc92aaefccd6a53ee7
                 }
             }
         } else {
@@ -1751,6 +1763,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             actual.setClientes(new Cliente(tf_clientAddName2.getText(), Double.parseDouble(tf_clientAddDistance2.getText())));
             GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddName2.getText());;
             GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddDistance2.getText());
+<<<<<<< HEAD
             GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia", tf_clientAddDistance2.getText());
             actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         } else if (jRadioButton1.isSelected()) {
@@ -1760,6 +1773,17 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         }
         GrafoClientes.addEdge(actual.getNombre() + "" + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
         GrafoClientes.getNode(actual.getNombre() + "" + tf_clientAddName.getText()).addAttribute("Distancia", tf_clientAddDistance.getText());
+=======
+            GrafoClientes.getEdge(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia",tf_clientAddDistance2.getText());
+            actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
+        } else if (jRadioButton1.isSelected()) {
+            GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddDistance2.getText());
+            GrafoClientes.getEdge(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia",tf_clientAddDistance2.getText());
+            actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
+        }
+        GrafoClientes.addEdge(actual.getNombre() + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
+        GrafoClientes.getEdge(actual.getNombre() + tf_clientAddName.getText()).addAttribute("Distancia",tf_clientAddDistance.getText());
+>>>>>>> d96e47c99179d181685d71bc92aaefccd6a53ee7
         actual.setListaEdges(actual.getNombre() + "/" + tf_clientAddName.getText() + "/" + tf_clientAddDistance.getText());
         tf_clientAddName2.setText("");
         tf_clientAddDistance2.setText("");
@@ -1783,7 +1807,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         tf_clientAddName2.setEnabled(false);
-        tf_clientAddDistance2.setEnabled(false);
+        //tf_clientAddDistance2.setEnabled(false);
         jComboBoxClients.setEnabled(false);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
@@ -1794,7 +1818,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             tf_clientAddDistance2.setEnabled(true);
         } else if (jComboBoxClients.getItemCount() > 0 && jComboBoxClients.getSelectedItem().toString() != "Create Other") {
             tf_clientAddName2.setEnabled(false);
-            tf_clientAddDistance2.setEnabled(false);
+            //tf_clientAddDistance2.setEnabled(false);
             Cliente temp = (Cliente) actual.getClientes(jComboBoxClients.getSelectedIndex());
             tf_clientAddName2.setText(temp.getNombre());
             tf_clientAddDistance2.setText(temp.getKmAway() + "");
@@ -1861,6 +1885,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_harvest5ActionPerformed
 
+<<<<<<< HEAD
     private void jb_clientOrdersGO2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGO2ActionPerformed
         int total = 0;
         String temp = jComboBoxPedidos2.getSelectedItem().toString();
@@ -1941,6 +1966,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
         }
     }//GEN-LAST:event_jb_clientOrdersGOActionPerformed
+=======
+    private void jBKruskalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBKruskalActionPerformed
+        System.out.println(DijkstraInterno(jComboBox1));
+    }//GEN-LAST:event_jBKruskalActionPerformed
+>>>>>>> d96e47c99179d181685d71bc92aaefccd6a53ee7
 
     public boolean guardar(Hacienda guarda) {
         try {
@@ -2162,6 +2192,38 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     HiloTransporte Htransporte;
     Thread Clientes;
     Thread Simulacion;
+<<<<<<< HEAD
     Thread Transporte;
 
+=======
+    
+    
+    public double DijkstraInterno(JComboBox Combo){
+        Object Splits[]=null;
+        String[] CaminoEdges=null;
+        VsArrayList ListEdges = new VsArrayList(5);
+        Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "Distancia");
+        dijkstra.init(GrafoClientes);
+        dijkstra.setSource(GrafoClientes.getNode(actual.getNombre()));
+        dijkstra.compute();
+        Path Ruta = dijkstra.getPath(GrafoClientes.getNode("JLO"));
+        Splits=Ruta.getEdgePath().toArray();
+        for (int i = 0; i <Splits.length; i++) {
+            CaminoEdges=Splits[i].toString().split("\\[");
+            ListEdges.insert(CaminoEdges[0].toString(),0);
+        }
+        return PathWeight("Distancia",ListEdges);
+    }
+    
+    
+    public  Double PathWeight(String Opcion,VsArrayList ListEdges){
+        double PesoTotal=0;
+        String Temporal=" ";
+        for (int i = 0; i <ListEdges.getSize(); i++) {
+            Temporal=GrafoClientes.getEdge(ListEdges.get(i).toString()).getAttribute(Opcion);
+            PesoTotal+=Double.parseDouble(Temporal);
+        }
+        return PesoTotal;
+    }
+>>>>>>> d96e47c99179d181685d71bc92aaefccd6a53ee7
 }
