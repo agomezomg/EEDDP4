@@ -113,6 +113,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jb_dismissEmployee = new javax.swing.JButton();
         jLabel47 = new javax.swing.JLabel();
         cb_transportList = new javax.swing.JComboBox<>();
+        jb_addTransport = new javax.swing.JButton();
+        jb_addTransport1 = new javax.swing.JButton();
         jd_crops = new javax.swing.JDialog();
         jPanel11 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -736,6 +738,26 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jb_addTransport.setBackground(new java.awt.Color(224, 76, 35));
+        jb_addTransport.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_addTransport.setForeground(java.awt.Color.white);
+        jb_addTransport.setText("Create Transport Unit");
+        jb_addTransport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_addTransportActionPerformed(evt);
+            }
+        });
+
+        jb_addTransport1.setBackground(new java.awt.Color(224, 76, 35));
+        jb_addTransport1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        jb_addTransport1.setForeground(java.awt.Color.white);
+        jb_addTransport1.setText("Remove Transport Unit");
+        jb_addTransport1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_addTransport1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -749,6 +771,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel47)
                             .addComponent(jb_dismissEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -761,15 +784,16 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGap(60, 60, 60)
-                                        .addComponent(cb_employeeList, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cb_transportList, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cb_employeeList, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel47))
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cb_transportList, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel16)
+                                .addGap(83, 83, 83)
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jb_addTransport, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jb_addTransport1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 40, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -796,13 +820,15 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel34))
                 .addGap(18, 18, 18)
                 .addComponent(jb_dismissEmployee)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel47))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47)
                     .addComponent(cb_transportList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jb_addTransport)
+                .addGap(18, 18, 18)
+                .addComponent(jb_addTransport1)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_allStatViewLayout = new javax.swing.GroupLayout(jd_allStatView.getContentPane());
@@ -2063,6 +2089,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_transportListItemStateChanged
 
+    private void jb_addTransportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addTransportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_addTransportActionPerformed
+
+    private void jb_addTransport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addTransport1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_addTransport1ActionPerformed
+
     public boolean guardar(Hacienda guarda) {
         try {
             FileOutputStream file1 = new FileOutputStream(guarda.getNombre() + guarda.getContra() + ".fimana");
@@ -2225,6 +2259,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jb_addClient;
     private javax.swing.JButton jb_addCrops;
     private javax.swing.JButton jb_addEmployee;
+    private javax.swing.JButton jb_addTransport;
+    private javax.swing.JButton jb_addTransport1;
     private javax.swing.JButton jb_clientOrdersGO;
     private javax.swing.JButton jb_clientOrdersGO1;
     private javax.swing.JButton jb_clientOrdersGO2;
