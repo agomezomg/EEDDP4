@@ -1551,17 +1551,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 for (int i = 0; i < actual.getListaEdges().getSize(); i++) {
                     NododelEdge = actual.getListaEdges(i).toString().split("/");
                     GrafoClientes.addEdge(actual.getListaEdges(i).toString(), NododelEdge[0], NododelEdge[1]).addAttribute("ui.label", NododelEdge[2]);
-<<<<<<< HEAD
                     GrafoClientes.getNode(actual.getListaEdges(i).toString()).addAttribute("Distancia", NododelEdge[2]);
-=======
                     GrafoClientes.getEdge(actual.getListaEdges(i).toString()).addAttribute("Distancia",NododelEdge[2]);
->>>>>>> d96e47c99179d181685d71bc92aaefccd6a53ee7
+
                 }
             }
         } else {
             JOptionPane.showMessageDialog(this, "No existe el usuario");
         }
-
         jtf_userInput.setText("");
         jtf_passinput.setText("");
 
@@ -1763,7 +1760,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             actual.setClientes(new Cliente(tf_clientAddName2.getText(), Double.parseDouble(tf_clientAddDistance2.getText())));
             GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddName2.getText());;
             GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddDistance2.getText());
-<<<<<<< HEAD
             GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia", tf_clientAddDistance2.getText());
             actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         } else if (jRadioButton1.isSelected()) {
@@ -1773,17 +1769,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         }
         GrafoClientes.addEdge(actual.getNombre() + "" + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
         GrafoClientes.getNode(actual.getNombre() + "" + tf_clientAddName.getText()).addAttribute("Distancia", tf_clientAddDistance.getText());
-=======
-            GrafoClientes.getEdge(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia",tf_clientAddDistance2.getText());
-            actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
-        } else if (jRadioButton1.isSelected()) {
-            GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddDistance2.getText());
-            GrafoClientes.getEdge(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia",tf_clientAddDistance2.getText());
-            actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
-        }
-        GrafoClientes.addEdge(actual.getNombre() + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
-        GrafoClientes.getEdge(actual.getNombre() + tf_clientAddName.getText()).addAttribute("Distancia",tf_clientAddDistance.getText());
->>>>>>> d96e47c99179d181685d71bc92aaefccd6a53ee7
         actual.setListaEdges(actual.getNombre() + "/" + tf_clientAddName.getText() + "/" + tf_clientAddDistance.getText());
         tf_clientAddName2.setText("");
         tf_clientAddDistance2.setText("");
@@ -1885,7 +1870,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_harvest5ActionPerformed
 
-<<<<<<< HEAD
+
     private void jb_clientOrdersGO2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGO2ActionPerformed
         int total = 0;
         String temp = jComboBoxPedidos2.getSelectedItem().toString();
@@ -1966,11 +1951,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
         }
     }//GEN-LAST:event_jb_clientOrdersGOActionPerformed
-=======
+
     private void jBKruskalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBKruskalActionPerformed
         System.out.println(DijkstraInterno(jComboBox1));
     }//GEN-LAST:event_jBKruskalActionPerformed
->>>>>>> d96e47c99179d181685d71bc92aaefccd6a53ee7
+
 
     public boolean guardar(Hacienda guarda) {
         try {
@@ -2192,10 +2177,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     HiloTransporte Htransporte;
     Thread Clientes;
     Thread Simulacion;
-<<<<<<< HEAD
     Thread Transporte;
 
-=======
     
     
     public double DijkstraInterno(JComboBox Combo){
@@ -2225,5 +2208,4 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         }
         return PesoTotal;
     }
->>>>>>> d96e47c99179d181685d71bc92aaefccd6a53ee7
 }
