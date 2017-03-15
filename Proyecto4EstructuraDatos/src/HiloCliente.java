@@ -55,8 +55,6 @@ public class HiloCliente implements Runnable {
                     PedidoClientes((Cliente) Clientes.get(i));
                 }
             }
-                
-
             try{
                 Thread.sleep(5000);
             }catch(Exception e){
