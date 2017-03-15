@@ -57,10 +57,12 @@ public class Hacienda implements Serializable {
         return Personal;
     }
 
-    public Object getTransportistas() {
-        Object TemporalTrans = Transportistas.DeQueue();
-        Transportistas.Queue(TemporalTrans);
-        return TemporalTrans;
+    public Queue getTransportistas() {
+        return Transportistas;
+    }
+    
+    public Transportista getTransportista() {
+        return (Transportista) Transportistas.DeQueue();
     }
 
     public Object getClientes(int p) {

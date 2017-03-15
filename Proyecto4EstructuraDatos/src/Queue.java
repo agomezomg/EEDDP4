@@ -48,4 +48,9 @@ public class Queue implements Serializable{
     public Object peek() {
         return objetos[0];
     }
+
+    public Object[] getObjetos() {
+        return objetos;
+    }    
+    
 }
