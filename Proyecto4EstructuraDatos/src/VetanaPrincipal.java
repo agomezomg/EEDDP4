@@ -2069,7 +2069,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         dijkstra.init(GrafoClientes);
         dijkstra.setSource(GrafoClientes.getNode(actual.getNombre()));
         dijkstra.compute();
-        Path Ruta = dijkstra.getPath(GrafoClientes.getNode("JLO"));
+        Path Ruta = dijkstra.getPath(GrafoClientes.getNode(Combo.getSelectedItem().toString()));
         Splits=Ruta.getEdgePath().toArray();
         for (int i = 0; i <Splits.length; i++) {
             CaminoEdges=Splits[i].toString().split("\\[");
