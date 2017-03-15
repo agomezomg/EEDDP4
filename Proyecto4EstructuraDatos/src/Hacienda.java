@@ -1,8 +1,6 @@
 
 import java.io.Serializable;
 
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,39 +12,42 @@ import java.io.Serializable;
  */
 public class Hacienda implements Serializable {
 
-    private VsArrayList Inventario;
+    private final VsArrayList Inventario;
     private VsArrayList Cultivos;
-    private VsArrayList Personal;
-    private VsArrayList ListaEdges;
+    private final VsArrayList Personal;
+    private final VsArrayList ListaEdges;
     private double DineroTotal = 0;
     private double SaldoBase;
     private String Nombre;
     private String Contra;
-    private Queue Transportistas;
-    private VsArrayList Clientes;
-    
+    private final Queue Transportistas;
+    private final VsArrayList Clientes;
 
     public Hacienda(double SaldoBase, String Nombre, String Contra) {
         Inventario = new VsArrayList(5);
         Cultivos = new VsArrayList(5);
         Personal = new VsArrayList(5);
         Clientes = new VsArrayList(5);
-        ListaEdges=new VsArrayList(5);
+        ListaEdges = new VsArrayList(5);
         Transportistas = new Queue();
         this.SaldoBase = SaldoBase;
         this.Nombre = Nombre;
         this.Contra = Contra;
         this.DineroTotal = SaldoBase;
-        
+
     }
-    
+
+    public Queue getTransportistasQ() {
+        return Transportistas;
+    }
+
     public Object getListaEdges(int p) {
         return ListaEdges.get(p);
     }
-   
-     public void setListaEdges(Object ListaEdges) {
+
+    public void setListaEdges(Object ListaEdges) {
         this.ListaEdges.insert(ListaEdges, 0);
-    } 
+    }
 
     public VsArrayList getListaEdges() {
         return ListaEdges;
@@ -55,11 +56,9 @@ public class Hacienda implements Serializable {
     public VsArrayList getPersonal() {
         return Personal;
     }
-    
-     
-     
+
     public Object getTransportistas() {
-        Object TemporalTrans=Transportistas.DeQueue();
+        Object TemporalTrans = Transportistas.DeQueue();
         Transportistas.Queue(TemporalTrans);
         return TemporalTrans;
     }
@@ -83,18 +82,19 @@ public class Hacienda implements Serializable {
     public VsArrayList getCultivos() {
         return Cultivos;
     }
+
     public Cultivo getCultivos(int i) {
-        return (Cultivo)Cultivos.get(i);
+        return (Cultivo) Cultivos.get(i);
     }
 
     public void setCultivos(VsArrayList Cultivos) {
         this.Cultivos = Cultivos;
     }
+
     public void setCultivos(Cultivo Cultivos) {
         this.Cultivos.insert(Cultivos, 0);
     }
-    
-    
+
     public double getDineroTotal() {
         return DineroTotal;
     }

@@ -55,4 +55,9 @@ public class Personal implements Serializable {
         this.CantidadHorasTrabajadas = CantidadHorasTrabajadas;
     }
 
+    @Override
+    public String toString() {
+        return name + ", " + Cargo;
+    }
+
 }

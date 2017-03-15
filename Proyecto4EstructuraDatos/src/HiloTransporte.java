@@ -15,14 +15,14 @@ import javax.swing.JProgressBar;
  */
 public class HiloTransporte implements Runnable {
 
-    private JProgressBar barra1;
-    private JProgressBar barra2;
-    private JProgressBar barra3;
-    private boolean vivo = true;
-    private JLabel fondos;
-    private JButton boton1;
-    private JButton boton2;
-    private JButton boton3;
+    private final JProgressBar barra1;
+    private final JProgressBar barra2;
+    private final JProgressBar barra3;
+    private final boolean vivo = true;
+    private final JLabel fondos;
+    private final JButton boton1;
+    private final JButton boton2;
+    private final JButton boton3;
     private Hacienda actual;
     private Cliente cliente1;
     private Cliente cliente2;

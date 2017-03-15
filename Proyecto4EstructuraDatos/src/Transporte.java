@@ -6,17 +6,27 @@ import java.io.Serializable;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author didiermurillo
  */
-public class Transporte implements Serializable{
+public class Transporte implements Serializable {
+
+    private Personal responsable;
     private String Identificacion;
     private int Tiempo;
     private int Costo;
     private boolean Disponible;
     private int Carga;
+
+    public Transporte(Personal responsable, String Identificacion, int Tiempo, int Costo, boolean Disponible, int Carga) {
+        this.responsable = responsable;
+        this.Identificacion = Identificacion;
+        this.Tiempo = Tiempo;
+        this.Costo = Costo;
+        this.Disponible = Disponible;
+        this.Carga = Carga;
+    }
 
     public Transporte(String Identificacion, int Tiempo, int Costo, boolean Disponible, int Carga) {
         this.Identificacion = Identificacion;
@@ -24,6 +34,14 @@ public class Transporte implements Serializable{
         this.Costo = Costo;
         this.Disponible = Disponible;
         this.Carga = Carga;
+    }
+
+    public Personal getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(Personal responsable) {
+        this.responsable = responsable;
     }
 
     public String getIdentificacion() {
@@ -70,7 +88,5 @@ public class Transporte implements Serializable{
     public String toString() {
         return "Transporte{" + "Identificacion=" + Identificacion + ", Tiempo=" + Tiempo + ", Costo=" + Costo + ", Disponible=" + Disponible + ", Carga=" + Carga + '}';
     }
-    
-    
-    
+
 }
