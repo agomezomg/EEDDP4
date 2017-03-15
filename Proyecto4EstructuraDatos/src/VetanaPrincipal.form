@@ -1433,7 +1433,7 @@
                                           <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="tf_clientAddDistance" min="-2" pref="200" max="-2" attributes="0"/>
                                           <Component id="tf_clientAddName" min="-2" pref="200" max="-2" attributes="0"/>
@@ -1515,7 +1515,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Ubuntu" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Km away:"/>
+                <Property name="text" type="java.lang.String" value="Km away from :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="tf_clientAddDistance">
@@ -1566,6 +1566,7 @@
               </Properties>
               <Events>
                 <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxClientsItemStateChanged"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxClientsActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

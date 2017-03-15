@@ -15,7 +15,7 @@ public class Personal implements Serializable {
     private String name;
     private String Cargo;
     private double Sueldo;
-    private int CantidadHorasTrabajadas;
+    private int DiasTrabajados;
 
     public Personal(String name, String Cargo, double Sueldo) {
         this.name = name;
@@ -47,13 +47,15 @@ public class Personal implements Serializable {
         this.Sueldo = Sueldo;
     }
 
-    public int getCantidadHorasTrabajadas() {
-        return CantidadHorasTrabajadas;
+    public int getDiasTrabajados() {
+        return DiasTrabajados;
     }
 
-    public void setCantidadHorasTrabajadas(int CantidadHorasTrabajadas) {
-        this.CantidadHorasTrabajadas = CantidadHorasTrabajadas;
+    public void setDiasTrabajados(int DiasTrabajados) {
+        this.DiasTrabajados = DiasTrabajados;
     }
+
+    
 
     @Override
     public String toString() {

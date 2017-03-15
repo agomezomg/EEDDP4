@@ -968,7 +968,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jLabel28.setText("Name:");
 
         jLabel29.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel29.setText("Km away:");
+        jLabel29.setText("Km away from :");
 
         jButton4.setText("GO!");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -999,6 +999,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jComboBoxClients.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxClientsItemStateChanged(evt);
+            }
+        });
+        jComboBoxClients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxClientsActionPerformed(evt);
             }
         });
 
@@ -1050,7 +1055,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel28)
                                     .addComponent(jLabel29))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tf_clientAddDistance, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(tf_clientAddName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1907,7 +1912,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         tf_clientAddName2.setEnabled(false);
-        //tf_clientAddDistance2.setEnabled(false);
+        tf_clientAddDistance2.setEnabled(false);
         jComboBoxClients.setEnabled(false);
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
@@ -1918,7 +1923,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             tf_clientAddDistance2.setEnabled(true);
         } else if (jComboBoxClients.getItemCount() > 0 && !"Create Other".equals(jComboBoxClients.getSelectedItem().toString())) {
             tf_clientAddName2.setEnabled(false);
-            //tf_clientAddDistance2.setEnabled(false);
+            tf_clientAddDistance2.setEnabled(false);
             Cliente temp = (Cliente) actual.getClientes(jComboBoxClients.getSelectedIndex());
             tf_clientAddName2.setText(temp.getNombre());
             tf_clientAddDistance2.setText(temp.getKmAway() + "");
@@ -2096,6 +2101,10 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     private void jb_addTransport1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addTransport1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_addTransport1ActionPerformed
+
+    private void jComboBoxClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClientsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxClientsActionPerformed
 
     public boolean guardar(Hacienda guarda) {
         try {
