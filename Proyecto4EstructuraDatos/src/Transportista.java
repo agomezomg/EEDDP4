@@ -58,7 +58,7 @@ public class Transportista implements Serializable {
 
     @Override
     public String toString() {
-        return "Transportista{" + "Identificacion=" + Identificacion + ", Tiempo=" + Tiempo + ", cobroEnvio=" + cobroEnvio + ", Disponible=" + Disponible + '}';
+        return "ID: " + Identificacion + ", $" + cobroEnvio;
     }
 
 }

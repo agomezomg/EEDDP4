@@ -1727,8 +1727,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     NododelEdge = actual.getListaEdges(i).toString().split("/");
                     GrafoClientes.addEdge(actual.getListaEdges(i).toString(), NododelEdge[0], NododelEdge[1]).addAttribute("ui.label", NododelEdge[2]);
                     GrafoClientes.getEdge(actual.getListaEdges(i).toString()).addAttribute("Distancia", NododelEdge[2]);
-                    GrafoClientes.getNode(actual.getListaEdges(i).toString()).addAttribute("Distancia", NododelEdge[2]);
-                    GrafoClientes.getEdge(actual.getListaEdges(i).toString()).addAttribute("Distancia", NododelEdge[2]);
                 }
             }
         } else {
@@ -1815,21 +1813,17 @@ public class VetanaPrincipal extends javax.swing.JFrame {
 
         model = new DefaultComboBoxModel();
 
-        ArrayList<Transportista> transUnitsT = new ArrayList<>();
-        int queueSize = actual.getTransportistas().size();
-        for (int i = 0; i < queueSize; i++) {
-            transUnitsT.add(actual.getTransportista());
-            model.addElement(transUnitsT.get(i));
+        ArrayList<Object> transUnitsT = actual.getTransportistas().getObjetos();
+
+        for (int i = 0; i < transUnitsT.size(); i++) {
+            model.addElement((Transportista) transUnitsT.get(i));
         }
         cb_transportList.setModel(model);
-
-        transUnitsT.forEach((transUnitsT1) -> {
-            actual.getTransportistas().add(transUnitsT1);
-        });
     }//GEN-LAST:event_jb_viewStatsActionPerformed
 
     private void jb_harvest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest1ActionPerformed
         // TODO add your handling code here:
+        jComboBoxPedidos.removeAllItems();
         if (actual.getClientes().getSize() > 0) {
             for (int i = 0; i < actual.getClientes().getSize(); i++) {
                 Cliente temp = (Cliente) actual.getClientes(i);
@@ -1841,7 +1835,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jd_clientOrderView3.pack();
         jd_clientOrderView3.setLocationRelativeTo(jf_adminView);
         jd_clientOrderView3.setVisible(true);
-        jComboBoxPedidos.removeAllItems();
 
     }//GEN-LAST:event_jb_harvest1ActionPerformed
 
@@ -2039,8 +2032,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
             jButton5.setEnabled(false);
             jd_harvest1.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null,"NO tiene cultivos");
+        } else {
+            JOptionPane.showMessageDialog(null, "NO tiene cultivos");
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -2054,8 +2047,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
             jButton6.setEnabled(false);
             jd_harvest2.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null,"NO tiene cultivos");
+        } else {
+            JOptionPane.showMessageDialog(null, "NO tiene cultivos");
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -2069,12 +2062,13 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
             jButton7.setEnabled(false);
             jd_harvest3.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null,"NO tiene cultivos");
+        } else {
+            JOptionPane.showMessageDialog(null, "NO tiene cultivos");
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jb_harvest4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest4ActionPerformed
+        jComboBoxPedidos1.removeAllItems();
         if (actual.getClientes().getSize() > 0) {
             for (int i = 0; i < actual.getClientes().getSize(); i++) {
                 Cliente temp = (Cliente) actual.getClientes(i);
@@ -2086,10 +2080,10 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jd_clientOrderView1.pack();
         jd_clientOrderView1.setLocationRelativeTo(jf_adminView);
         jd_clientOrderView1.setVisible(true);
-        jComboBoxPedidos1.removeAllItems();
     }//GEN-LAST:event_jb_harvest4ActionPerformed
 
     private void jb_harvest5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest5ActionPerformed
+        jComboBoxPedidos2.removeAllItems();
         if (actual.getClientes().getSize() > 0) {
             for (int i = 0; i < actual.getClientes().getSize(); i++) {
                 Cliente temp = (Cliente) actual.getClientes(i);
@@ -2101,13 +2095,12 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jd_clientOrderView2.pack();
         jd_clientOrderView2.setLocationRelativeTo(jf_adminView);
         jd_clientOrderView2.setVisible(true);
-        jComboBoxPedidos2.removeAllItems();
     }//GEN-LAST:event_jb_harvest5ActionPerformed
 
 
     private void jb_clientOrdersGO2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGO2ActionPerformed
-        if (jComboBoxPedidos2.getItemCount()>0) {
-            
+        if (jComboBoxPedidos2.getItemCount() > 0) {
+
             int total = 0;
             String temp = jComboBoxPedidos2.getSelectedItem().toString();
             int pos = 0;
@@ -2123,8 +2116,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     total += actual.getCultivos(i).getCantidad();
                 }
             }
-            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().size() > 0) {
-                distancia = DijkstraInterno(jComboBoxPedidos2);
+            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().getSize() > 0) {
+                distancia = DijkstraInterno(cliente);
                 Htransporte.setCliente2(cliente);
                 Htransporte.setDistancia2(distancia);
                 Htransporte.setTrans2(actual.getTransportista());
@@ -2140,8 +2133,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_clientOrdersGO2ActionPerformed
 
     private void jb_clientOrdersGO1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGO1ActionPerformed
-        if (jComboBoxPedidos1.getItemCount()>0) {
-            
+        if (jComboBoxPedidos1.getItemCount() > 0) {
+
             int total = 0;
             String temp = jComboBoxPedidos1.getSelectedItem().toString();
             int pos = 0;
@@ -2157,8 +2150,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     total += actual.getCultivos(i).getCantidad();
                 }
             }
-            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().size() > 0) {
-                distancia = DijkstraInterno(jComboBoxPedidos1);
+            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().getSize() > 0) {
+                distancia = DijkstraInterno(cliente);
                 Htransporte.setCliente1(cliente);
                 Htransporte.setDistancia1(distancia);
                 Htransporte.setTrans1(actual.getTransportista());
@@ -2174,8 +2167,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_clientOrdersGO1ActionPerformed
 
     private void jb_clientOrdersGOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGOActionPerformed
-        if (jComboBoxPedidos.getItemCount()>0) {
-            
+        if (jComboBoxPedidos.getItemCount() > 0) {
+
             int total = 0;
             String temp = jComboBoxPedidos.getSelectedItem().toString();
             int pos = 0;
@@ -2191,8 +2184,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                     total += actual.getCultivos(i).getCantidad();
                 }
             }
-            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().size() > 0) {
-                distancia = DijkstraInterno(jComboBoxPedidos);
+            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().getSize() > 0) {
+                distancia = DijkstraInterno(cliente);
                 Htransporte.setCliente3(cliente);
                 Htransporte.setDistancia3(distancia);
                 Htransporte.setTrans3(actual.getTransportista());
@@ -2205,6 +2198,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
             }
         }
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < actual.getPersonal().getSize(); i++) {
+            model.addElement(actual.getPersonal().get(i));
+        }
+        cb_employeeList.setModel(model);
     }//GEN-LAST:event_jb_clientOrdersGOActionPerformed
 
     private void jb_dismissEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_dismissEmployeeActionPerformed
@@ -2221,6 +2219,8 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Couldn't perform this action.");
         }
+
+
     }//GEN-LAST:event_jb_dismissEmployeeActionPerformed
 
     private void cb_employeeListItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_employeeListItemStateChanged
@@ -2248,12 +2248,20 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No changes.");
         } else {
             try {
-                actual.getTransportistas().remove();
+                actual.getTransportistas().DeQueue();
                 JOptionPane.showMessageDialog(this, "You have fired your oldest transport unit.");
             } catch (HeadlessException e) {
                 JOptionPane.showMessageDialog(this, "There was an error. Contact your administrator. JK. Lol.");
             }
         }
+
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        ArrayList<Object> transUnitsT = actual.getTransportistas().getObjetos();
+
+        for (int i = 0; i < transUnitsT.size(); i++) {
+            model.addElement((Transportista) transUnitsT.get(i));
+        }
+        cb_transportList.setModel(model);
     }//GEN-LAST:event_jb_remTransportActionPerformed
 
     private void cb_transportListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_transportListActionPerformed
@@ -2273,7 +2281,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             int deliveryTime = Integer.parseInt(tf_transDT.getText());
             double fee = Double.parseDouble(tf_transFeeA.getText());
 
-            if (actual.getTransportistas().add(new Transportista(ID, deliveryTime, fee))) {
+            if (actual.getTransportistas().Queue(new Transportista(ID, deliveryTime, fee))) {
                 JOptionPane.showMessageDialog(this, "Queued successfully.");
             } else {
                 JOptionPane.showMessageDialog(this, "Queue perform failed.");
@@ -2287,6 +2295,14 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Check your input values.");
         }
+
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        ArrayList<Object> transUnitsT = actual.getTransportistas().getObjetos();
+
+        for (int i = 0; i < transUnitsT.size(); i++) {
+            model.addElement((Transportista) transUnitsT.get(i));
+        }
+        cb_transportList.setModel(model);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jComboBoxClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxClientsActionPerformed
@@ -2529,7 +2545,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     Thread Simulacion;
     Thread Transporte;
 
-    public double DijkstraInterno(JComboBox Combo) {
+    public double DijkstraInterno(Cliente Combo) {
         Object Splits[] = null;
         String[] CaminoEdges = null;
         VsArrayList ListEdges = new VsArrayList(5);
@@ -2537,13 +2553,13 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         dijkstra.init(GrafoClientes);
         dijkstra.setSource(GrafoClientes.getNode(actual.getNombre()));
         dijkstra.compute();
-        Path Ruta = dijkstra.getPath(GrafoClientes.getNode(Combo.getSelectedItem().toString()));
+        Path Ruta = dijkstra.getPath(GrafoClientes.getNode(Combo.getNombre()));
         Splits = Ruta.getEdgePath().toArray();
         for (int i = 0; i < Splits.length; i++) {
             CaminoEdges = Splits[i].toString().split("\\[");
             ListEdges.insert(CaminoEdges[0].toString(), 0);
         }
-        Ruta = dijkstra.getPath(GrafoClientes.getNode(Combo.getSelectedItem().toString()));
+        Ruta = dijkstra.getPath(GrafoClientes.getNode(Combo.getNombre()));
         Splits = Ruta.getEdgePath().toArray();
         for (int j = 0; j < Splits.length; j++) {
             CaminoEdges = Splits[j].toString().split("\\[");

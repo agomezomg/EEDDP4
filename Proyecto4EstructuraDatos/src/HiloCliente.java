@@ -42,7 +42,7 @@ public class HiloCliente implements Runnable {
     public void run() {
         while(vivo){
             System.out.println(dia.getText());
-            if(Integer.parseInt(dia.getText())%31==0){
+            if(Integer.parseInt(dia.getText())%5==0){
                 JOptionPane.showMessageDialog(null,"Llego la hora de pagarle a los empleados! :D (?)");
                 for (int i = 0; i <Personal.getSize(); i++) {
                     if (((Personal)Personal.get(i)).getSueldo()>hacienda.getDineroTotal()) {
@@ -54,6 +54,7 @@ public class HiloCliente implements Runnable {
                 }
                 for (int i = 0; i <Clientes.getSize(); i++) {
                     PedidoClientes((Cliente) Clientes.get(i));
+                    System.out.println(Clientes.get(i).toString());
                 }
             }else{
                 for (int i = 0; i < Personal.getSize(); i++) {
