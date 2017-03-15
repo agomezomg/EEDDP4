@@ -1,5 +1,6 @@
 
 import java.io.Serializable;
+import java.util.Queue;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,7 +21,7 @@ public class Hacienda implements Serializable {
     private double SaldoBase;
     private String Nombre;
     private String Contra;
-    private final Queue Transportistas;
+    private Queue Transportistas;
     private final VsArrayList Clientes;
 
     public Hacienda(double SaldoBase, String Nombre, String Contra) {
@@ -29,12 +30,10 @@ public class Hacienda implements Serializable {
         Personal = new VsArrayList(5);
         Clientes = new VsArrayList(5);
         ListaEdges = new VsArrayList(5);
-        Transportistas = new Queue();
         this.SaldoBase = SaldoBase;
         this.Nombre = Nombre;
         this.Contra = Contra;
         this.DineroTotal = SaldoBase;
-
     }
 
     public Queue getTransportistasQ() {
@@ -62,15 +61,15 @@ public class Hacienda implements Serializable {
     }
     
     public Transportista getTransportista() {
-        return (Transportista) Transportistas.DeQueue();
+        return (Transportista) Transportistas.remove();
     }
 
     public Object getClientes(int p) {
         return Clientes.get(p);
     }
 
-    public void setTransportistas(Object Transportistas) {
-        this.Transportistas.Queue(Transportistas);
+    public void setTransportistas(Object transportistas) {
+        this.Transportistas.add(transportistas);
     }
 
     public void setClientes(Object Clientes) {

@@ -1805,7 +1805,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         jl_propertyName.setText(actual.getNombre());
         jl_baseFunding.setText(actual.getSaldoBase() + "");
         jl_currentFunds.setText(actual.getDineroTotal() + "");
-        
+
         jd_allStatView.setVisible(true);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         for (int i = 0; i < actual.getPersonal().getSize(); i++) {
@@ -1816,7 +1816,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         model = new DefaultComboBoxModel();
 
         ArrayList<Transportista> transUnitsT = new ArrayList<>();
-        int queueSize = actual.getTransportistas().getSize();
+        int queueSize = actual.getTransportistas().size();
         for (int i = 0; i < queueSize; i++) {
             transUnitsT.add(actual.getTransportista());
             model.addElement(transUnitsT.get(i));
@@ -1824,22 +1824,24 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         cb_transportList.setModel(model);
 
         transUnitsT.forEach((transUnitsT1) -> {
-            actual.getTransportistas().Queue(transUnitsT1);
+            actual.getTransportistas().add(transUnitsT1);
         });
     }//GEN-LAST:event_jb_viewStatsActionPerformed
 
     private void jb_harvest1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest1ActionPerformed
         // TODO add your handling code here:
+        if (actual.getClientes().getSize() > 0) {
+            for (int i = 0; i < actual.getClientes().getSize(); i++) {
+                Cliente temp = (Cliente) actual.getClientes(i);
+                if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
+                    jComboBoxPedidos.addItem(((Cliente) actual.getClientes(i)).toString());
+                }
+            }
+        }
         jd_clientOrderView3.pack();
         jd_clientOrderView3.setLocationRelativeTo(jf_adminView);
         jd_clientOrderView3.setVisible(true);
         jComboBoxPedidos.removeAllItems();
-        for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            Cliente temp = (Cliente) actual.getClientes(i);
-            if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
-                jComboBoxPedidos.addItem(((Cliente) actual.getClientes(i)).toString());
-            }
-        }
 
     }//GEN-LAST:event_jb_harvest1ActionPerformed
 
@@ -2028,140 +2030,180 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_viewGraphsActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Cultivo temp = actual.getCultivos(jcombo_harcrop.getSelectedIndex());
-        actual.getCultivos().remove(jcombo_harcrop.getSelectedIndex());
-        H.setCult1(temp);
-        H.setActivo1(true);
-        JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
-        jButton5.setEnabled(false);
-        jd_harvest1.setVisible(false);
+        if (actual.getCultivos().getSize() > 0) {
+
+            Cultivo temp = actual.getCultivos(jcombo_harcrop.getSelectedIndex());
+            actual.getCultivos().remove(jcombo_harcrop.getSelectedIndex());
+            H.setCult1(temp);
+            H.setActivo1(true);
+            JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+            jButton5.setEnabled(false);
+            jd_harvest1.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null,"NO tiene cultivos");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Cultivo temp = actual.getCultivos(jcombo_harcrop1.getSelectedIndex());
-        actual.getCultivos().remove(jcombo_harcrop1.getSelectedIndex());
-        H.setCult2(temp);
-        H.setActivo2(true);
-        JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
-        jButton6.setEnabled(false);
-        jd_harvest2.setVisible(false);
+        if (actual.getCultivos().getSize() > 0) {
+
+            Cultivo temp = actual.getCultivos(jcombo_harcrop1.getSelectedIndex());
+            actual.getCultivos().remove(jcombo_harcrop1.getSelectedIndex());
+            H.setCult2(temp);
+            H.setActivo2(true);
+            JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+            jButton6.setEnabled(false);
+            jd_harvest2.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null,"NO tiene cultivos");
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Cultivo temp = actual.getCultivos(jcombo_harcrop2.getSelectedIndex());
-        actual.getCultivos().remove(jcombo_harcrop2.getSelectedIndex());
-        H.setCult3(temp);
-        H.setActivo3(true);
-        JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
-        jButton7.setEnabled(false);
-        jd_harvest3.setVisible(false);
+        if (actual.getCultivos().getSize() > 0) {
+
+            Cultivo temp = actual.getCultivos(jcombo_harcrop2.getSelectedIndex());
+            actual.getCultivos().remove(jcombo_harcrop2.getSelectedIndex());
+            H.setCult3(temp);
+            H.setActivo3(true);
+            JOptionPane.showMessageDialog(this, "Se a empezado a Cultivar");
+            jButton7.setEnabled(false);
+            jd_harvest3.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null,"NO tiene cultivos");
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jb_harvest4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest4ActionPerformed
+        if (actual.getClientes().getSize() > 0) {
+            for (int i = 0; i < actual.getClientes().getSize(); i++) {
+                Cliente temp = (Cliente) actual.getClientes(i);
+                if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
+                    jComboBoxPedidos1.addItem(((Cliente) actual.getClientes(i)).toString());
+                }
+            }
+        }
         jd_clientOrderView1.pack();
         jd_clientOrderView1.setLocationRelativeTo(jf_adminView);
         jd_clientOrderView1.setVisible(true);
         jComboBoxPedidos1.removeAllItems();
-        for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            Cliente temp = (Cliente) actual.getClientes(i);
-            if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
-                jComboBoxPedidos1.addItem(((Cliente) actual.getClientes(i)).toString());
-            }
-        }
     }//GEN-LAST:event_jb_harvest4ActionPerformed
 
     private void jb_harvest5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvest5ActionPerformed
+        if (actual.getClientes().getSize() > 0) {
+            for (int i = 0; i < actual.getClientes().getSize(); i++) {
+                Cliente temp = (Cliente) actual.getClientes(i);
+                if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
+                    jComboBoxPedidos2.addItem(((Cliente) actual.getClientes(i)).toString());
+                }
+            }
+        }
         jd_clientOrderView2.pack();
         jd_clientOrderView2.setLocationRelativeTo(jf_adminView);
         jd_clientOrderView2.setVisible(true);
         jComboBoxPedidos2.removeAllItems();
-        for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            Cliente temp = (Cliente) actual.getClientes(i);
-            if (!temp.isPedidoenProceso() && !temp.getPedidoCultivo().equals("")) {
-                jComboBoxPedidos2.addItem(((Cliente) actual.getClientes(i)).toString());
-            }
-        }
     }//GEN-LAST:event_jb_harvest5ActionPerformed
 
 
     private void jb_clientOrdersGO2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGO2ActionPerformed
-        int total = 0;
-        String temp = jComboBoxPedidos2.getSelectedItem().toString();
-        int pos = 0;
-        for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            if (actual.getClientes(i).toString().equals(temp)) {
-                pos = i;
+        if (jComboBoxPedidos2.getItemCount()>0) {
+            
+            int total = 0;
+            String temp = jComboBoxPedidos2.getSelectedItem().toString();
+            int pos = 0;
+            double distancia;
+            for (int i = 0; i < actual.getClientes().getSize(); i++) {
+                if (actual.getClientes(i).toString().equals(temp)) {
+                    pos = i;
+                }
             }
-        }
-        Cliente cliente = (Cliente) actual.getClientes(pos);
-        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
-            if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
-                total += actual.getCultivos(i).getCantidad();
+            Cliente cliente = (Cliente) actual.getClientes(pos);
+            for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+                if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
+                    total += actual.getCultivos(i).getCantidad();
+                }
             }
-        }
-        if (total >= cliente.getCantidadPedida()) {
-            Htransporte.setCliente2(cliente);
-            Htransporte.setActivo2(true);
-            //Htransporte.setTrans1((Transporte) actual.getTransportistas());
-            JOptionPane.showMessageDialog(null, "Envio iniciado");
-            jb_clientOrdersGO2.setEnabled(false);
-            jd_clientOrderView2.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
+            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().size() > 0) {
+                distancia = DijkstraInterno(jComboBoxPedidos2);
+                Htransporte.setCliente2(cliente);
+                Htransporte.setDistancia2(distancia);
+                Htransporte.setTrans2(actual.getTransportista());
+                Htransporte.setActivo2(true);
+                //Htransporte.setTrans1((Transporte) actual.getTransportistas());
+                JOptionPane.showMessageDialog(null, "Envio iniciado");
+                jb_clientOrdersGO2.setEnabled(false);
+                jd_clientOrderView2.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
+            }
         }
     }//GEN-LAST:event_jb_clientOrdersGO2ActionPerformed
 
     private void jb_clientOrdersGO1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGO1ActionPerformed
-        int total = 0;
-        String temp = jComboBoxPedidos1.getSelectedItem().toString();
-        int pos = 0;
-        for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            if (actual.getClientes(i).toString().equals(temp)) {
-                pos = i;
+        if (jComboBoxPedidos1.getItemCount()>0) {
+            
+            int total = 0;
+            String temp = jComboBoxPedidos1.getSelectedItem().toString();
+            int pos = 0;
+            double distancia;
+            for (int i = 0; i < actual.getClientes().getSize(); i++) {
+                if (actual.getClientes(i).toString().equals(temp)) {
+                    pos = i;
+                }
             }
-        }
-        Cliente cliente = (Cliente) actual.getClientes(pos);
-        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
-            if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
-                total += actual.getCultivos(i).getCantidad();
+            Cliente cliente = (Cliente) actual.getClientes(pos);
+            for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+                if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
+                    total += actual.getCultivos(i).getCantidad();
+                }
             }
-        }
-        if (total >= cliente.getCantidadPedida()) {
-            Htransporte.setCliente1(cliente);
-            Htransporte.setActivo1(true);
-            //Htransporte.setTrans1((Transporte) actual.getTransportistas());
-            JOptionPane.showMessageDialog(null, "Envio iniciado");
-            jb_clientOrdersGO1.setEnabled(false);
-            jd_clientOrderView1.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
+            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().size() > 0) {
+                distancia = DijkstraInterno(jComboBoxPedidos1);
+                Htransporte.setCliente1(cliente);
+                Htransporte.setDistancia1(distancia);
+                Htransporte.setTrans1(actual.getTransportista());
+                Htransporte.setActivo1(true);
+                //Htransporte.setTrans1((Transporte) actual.getTransportistas());
+                JOptionPane.showMessageDialog(null, "Envio iniciado");
+                jb_clientOrdersGO1.setEnabled(false);
+                jd_clientOrderView1.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido o no tiene transportistas disponible");
+            }
         }
     }//GEN-LAST:event_jb_clientOrdersGO1ActionPerformed
 
     private void jb_clientOrdersGOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_clientOrdersGOActionPerformed
-        int total = 0;
-        String temp = jComboBoxPedidos.getSelectedItem().toString();
-        int pos = 0;
-        for (int i = 0; i < actual.getClientes().getSize(); i++) {
-            if (actual.getClientes(i).toString().equals(temp)) {
-                pos = i;
+        if (jComboBoxPedidos.getItemCount()>0) {
+            
+            int total = 0;
+            String temp = jComboBoxPedidos.getSelectedItem().toString();
+            int pos = 0;
+            double distancia;
+            for (int i = 0; i < actual.getClientes().getSize(); i++) {
+                if (actual.getClientes(i).toString().equals(temp)) {
+                    pos = i;
+                }
             }
-        }
-        Cliente cliente = (Cliente) actual.getClientes(pos);
-        for (int i = 0; i < actual.getCultivos().getSize(); i++) {
-            if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
-                total += actual.getCultivos(i).getCantidad();
+            Cliente cliente = (Cliente) actual.getClientes(pos);
+            for (int i = 0; i < actual.getCultivos().getSize(); i++) {
+                if (cliente.getPedidoCultivo().equals(actual.getCultivos(i).getTipoProducto())) {
+                    total += actual.getCultivos(i).getCantidad();
+                }
             }
-        }
-        if (total >= cliente.getCantidadPedida()) {
-            Htransporte.setCliente3(cliente);
-            Htransporte.setActivo3(true);
-            //Htransporte.setTrans1((Transporte) actual.getTransportistas());
-            JOptionPane.showMessageDialog(null, "Envio iniciado");
-            jb_clientOrdersGO.setEnabled(false);
-            jd_clientOrderView3.setVisible(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
+            if (total >= cliente.getCantidadPedida() && actual.getTransportistas().size() > 0) {
+                distancia = DijkstraInterno(jComboBoxPedidos);
+                Htransporte.setCliente3(cliente);
+                Htransporte.setDistancia3(distancia);
+                Htransporte.setTrans3(actual.getTransportista());
+                Htransporte.setActivo3(true);
+                //Htransporte.setTrans1((Transporte) actual.getTransportistas());
+                JOptionPane.showMessageDialog(null, "Envio iniciado");
+                jb_clientOrdersGO.setEnabled(false);
+                jd_clientOrderView3.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "No tiene en inventario para completar este pedido");
+            }
         }
     }//GEN-LAST:event_jb_clientOrdersGOActionPerformed
 
@@ -2206,7 +2248,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "No changes.");
         } else {
             try {
-                actual.getTransportistas().DeQueue();
+                actual.getTransportistas().remove();
                 JOptionPane.showMessageDialog(this, "You have fired your oldest transport unit.");
             } catch (HeadlessException e) {
                 JOptionPane.showMessageDialog(this, "There was an error. Contact your administrator. JK. Lol.");
@@ -2230,13 +2272,17 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         try {
             int deliveryTime = Integer.parseInt(tf_transDT.getText());
             double fee = Double.parseDouble(tf_transFeeA.getText());
-            
-            actual.getTransportistas().Queue(new Transportista(ID, deliveryTime, fee));
-            
+
+            if (actual.getTransportistas().add(new Transportista(ID, deliveryTime, fee))) {
+                JOptionPane.showMessageDialog(this, "Queued successfully.");
+            } else {
+                JOptionPane.showMessageDialog(this, "Queue perform failed.");
+            }
+
             tf_transIDAdd.setText("");
             tf_transDT.setText("");
             tf_transFeeA.setText("");
-            
+
             JOptionPane.showMessageDialog(this, "Queued a transport unit successfully!");
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Check your input values.");

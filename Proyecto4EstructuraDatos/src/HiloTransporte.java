@@ -61,7 +61,7 @@ public class HiloTransporte implements Runnable {
                             cliente1.setPedidoCultivo("");
                             cliente1.setPago(0);
                             cliente1.setPedidoenProceso(false);
-                            //actual.setTransportistas(trans1);
+                            actual.setTransportistas(trans1);
                         } else {
                             double temporalpago = cliente1.getCantidadPedida() * (cliente1.getPago() + 50);
                             cliente1.setCantidadPedida(cliente1.getCantidadPedida() - temp.getCantidad());
@@ -99,7 +99,7 @@ public class HiloTransporte implements Runnable {
                             cliente2.setPedidoCultivo("");
                             cliente2.setPago(0);
                             cliente2.setPedidoenProceso(false);
-                            //actual.setTransportistas(trans2);
+                            actual.setTransportistas(trans2);
                         } else {
                             double temporalpago = cliente2.getCantidadPedida() * (cliente2.getPago() + 50);
                             cliente2.setCantidadPedida(cliente2.getCantidadPedida() - temp.getCantidad());
@@ -136,7 +136,7 @@ public class HiloTransporte implements Runnable {
                             cliente3.setPedidoCultivo("");
                             cliente3.setPago(0);
                             cliente3.setPedidoenProceso(false);
-                            //actual.setTransportistas(trans2);
+                            actual.setTransportistas(trans3);
                         } else {
                             double temporalpago = cliente3.getCantidadPedida() * (cliente3.getPago() + 50);
                             cliente3.setCantidadPedida(cliente3.getCantidadPedida() - temp.getCantidad());
@@ -185,9 +185,7 @@ public class HiloTransporte implements Runnable {
 
     public void setCliente1(Cliente cliente1) {
         this.cliente1 = cliente1;
-        distancia1 = cliente1.getKmAway();
-        barra1.setMaximum((int) distancia1);
-        System.out.println(cliente1.toString());
+
     }
 
     public Cliente getCliente2() {
@@ -196,8 +194,7 @@ public class HiloTransporte implements Runnable {
 
     public void setCliente2(Cliente cliente2) {
         this.cliente2 = cliente2;
-        distancia2 = cliente2.getKmAway();
-        barra2.setMaximum((int) distancia2);
+
     }
 
     public Cliente getCliente3() {
@@ -206,7 +203,33 @@ public class HiloTransporte implements Runnable {
 
     public void setCliente3(Cliente cliente3) {
         this.cliente3 = cliente3;
-        distancia3 = cliente3.getKmAway();
+
+    }
+
+    public double getDistancia1() {
+        return distancia1;
+    }
+
+    public void setDistancia1(double distancia1) {
+        this.distancia1 = distancia1;
+        barra1.setMaximum((int) distancia1);
+    }
+
+    public double getDistancia2() {
+        return distancia2;
+    }
+
+    public void setDistancia2(double distancia2) {
+        this.distancia2 = distancia2;
+        barra2.setMaximum((int) distancia2);
+    }
+
+    public double getDistancia3() {
+        return distancia3;
+    }
+
+    public void setDistancia3(double distancia3) {
+        this.distancia3 = distancia3;
         barra3.setMaximum((int) distancia3);
     }
 
