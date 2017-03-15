@@ -1551,7 +1551,6 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 for (int i = 0; i < actual.getListaEdges().getSize(); i++) {
                     NododelEdge = actual.getListaEdges(i).toString().split("/");
                     GrafoClientes.addEdge(actual.getListaEdges(i).toString(), NododelEdge[0], NododelEdge[1]).addAttribute("ui.label", NododelEdge[2]);
-                    GrafoClientes.getNode(actual.getListaEdges(i).toString()).addAttribute("Distancia", NododelEdge[2]);
                     GrafoClientes.getEdge(actual.getListaEdges(i).toString()).addAttribute("Distancia",NododelEdge[2]);
 
                 }
@@ -1760,15 +1759,15 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             actual.setClientes(new Cliente(tf_clientAddName2.getText(), Double.parseDouble(tf_clientAddDistance2.getText())));
             GrafoClientes.addNode(tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddName2.getText());;
             GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText()).addAttribute("ui.label", tf_clientAddDistance2.getText());
-            GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia", tf_clientAddDistance2.getText());
+            GrafoClientes.getEdge(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia", tf_clientAddDistance2.getText());
             actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         } else if (jRadioButton1.isSelected()) {
             GrafoClientes.addEdge(tf_clientAddName.getText() + tf_clientAddName2.getText(), tf_clientAddName.getText(), tf_clientAddName2.getText());
-            GrafoClientes.getNode(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia", tf_clientAddDistance2.getText());
+            GrafoClientes.getEdge(tf_clientAddName.getText() + tf_clientAddName2.getText()).addAttribute("Distancia", tf_clientAddDistance2.getText());
             actual.setListaEdges(tf_clientAddName.getText() + "/" + tf_clientAddName2.getText() + "/" + tf_clientAddDistance2.getText());
         }
         GrafoClientes.addEdge(actual.getNombre() + "" + tf_clientAddName.getText(), actual.getNombre(), tf_clientAddName.getText()).addAttribute("ui.label", tf_clientAddDistance.getText());
-        GrafoClientes.getNode(actual.getNombre() + "" + tf_clientAddName.getText()).addAttribute("Distancia", tf_clientAddDistance.getText());
+        GrafoClientes.getEdge(actual.getNombre() + "" + tf_clientAddName.getText()).addAttribute("Distancia", tf_clientAddDistance.getText());
         actual.setListaEdges(actual.getNombre() + "/" + tf_clientAddName.getText() + "/" + tf_clientAddDistance.getText());
         tf_clientAddName2.setText("");
         tf_clientAddDistance2.setText("");
