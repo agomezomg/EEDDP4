@@ -30,9 +30,9 @@ public class HiloTransporte implements Runnable {
     private boolean activo1 = false;
     private boolean activo2 = false;
     private boolean activo3 = false;
-    private Transporte trans1;
-    private Transporte trans2;
-    private Transporte trans3;
+    private Transportista trans1;
+    private Transportista trans2;
+    private Transportista trans3;
     private double distancia1;
     private double distancia2;
     private double distancia3;
@@ -210,27 +210,27 @@ public class HiloTransporte implements Runnable {
         barra3.setMaximum((int) distancia3);
     }
 
-    public Transporte getTrans1() {
+    public Transportista getTrans1() {
         return trans1;
     }
 
-    public void setTrans1(Transporte trans1) {
+    public void setTrans1(Transportista trans1) {
         this.trans1 = trans1;
     }
 
-    public Transporte getTrans2() {
+    public Transportista getTrans2() {
         return trans2;
     }
 
-    public void setTrans2(Transporte trans2) {
+    public void setTrans2(Transportista trans2) {
         this.trans2 = trans2;
     }
 
-    public Transporte getTrans3() {
+    public Transportista getTrans3() {
         return trans3;
     }
 
-    public void setTrans3(Transporte trans3) {
+    public void setTrans3(Transportista trans3) {
         this.trans3 = trans3;
     }
 

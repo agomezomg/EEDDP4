@@ -72,8 +72,12 @@ public class VsArrayList implements ADTList, Serializable {
     @Override
     public int indexof(Object elemento) {
         for (int i = 0; i < objetos.length; i++) {
-            if (objetos.equals(elemento)) {
-                return i;
+            Personal toComp = (Personal) elemento;
+            Personal comp = (Personal) objetos[i];
+            if (toComp.getName() == null ? comp.getName() == null : toComp.getName().equals(comp.getName())) {
+                if (toComp.getCargo().equals(comp.getCargo())) {
+                    return i;
+                }
             }
         }
         return -1;
