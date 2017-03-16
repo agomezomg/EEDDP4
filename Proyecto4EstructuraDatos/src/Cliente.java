@@ -33,6 +33,7 @@ public class Cliente implements Serializable {
     public Cliente(String Nombre, double kmAway) {
         this.Nombre = Nombre;
         this.kmAway = kmAway;
+        this.PedidoCultivo = "";
     }
 
     public void setKmAway(double kmAway) {

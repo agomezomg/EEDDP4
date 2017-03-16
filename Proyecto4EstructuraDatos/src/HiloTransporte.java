@@ -49,14 +49,16 @@ public class HiloTransporte implements Runnable {
                             if (actual.getCultivos(i).getTipoProducto().equals(cliente1.getPedidoCultivo())) {
                                 temp = actual.getCultivos(i);
                                 post = i;
-                                break;
                             }
                         }
-                        if (temp.getCantidad() > cliente1.getCantidadPedida()) {
+                        if (temp.getCantidad() >= cliente1.getCantidadPedida()) {
                             double temporalpago = cliente1.getCantidadPedida() * (cliente1.getPago() + 50);
                             temp.setCantidad(temp.getCantidad() - cliente1.getCantidadPedida());
                             actual.setDineroTotal(actual.getDineroTotal() + temporalpago);
                             JOptionPane.showMessageDialog(null, "Se recibio pago de cliente");
+                            if (temp.getCantidad() == 0) {
+                                actual.getCultivos().remove(post);
+                            }
                             cliente1.setCantidadPedida(0);
                             cliente1.setPedidoCultivo("");
                             cliente1.setPago(0);
@@ -65,7 +67,6 @@ public class HiloTransporte implements Runnable {
                         } else {
                             double temporalpago = cliente1.getCantidadPedida() * (cliente1.getPago() + 50);
                             cliente1.setCantidadPedida(cliente1.getCantidadPedida() - temp.getCantidad());
-                            temp.setCantidad(0);
                             actual.getCultivos().remove(post);
                         }
                     }
@@ -95,6 +96,9 @@ public class HiloTransporte implements Runnable {
                             temp.setCantidad(temp.getCantidad() - cliente2.getCantidadPedida());
                             actual.setDineroTotal(actual.getDineroTotal() + temporalpago);
                             JOptionPane.showMessageDialog(null, "Se recibio pago de cliente");
+                            if (temp.getCantidad() == 0) {
+                                actual.getCultivos().remove(post);
+                            }
                             cliente2.setCantidadPedida(0);
                             cliente2.setPedidoCultivo("");
                             cliente2.setPago(0);
@@ -132,6 +136,9 @@ public class HiloTransporte implements Runnable {
                             temp.setCantidad(temp.getCantidad() - cliente3.getCantidadPedida());
                             actual.setDineroTotal(actual.getDineroTotal() + temporalpago);
                             JOptionPane.showMessageDialog(null, "Se recibio pago de cliente");
+                            if (temp.getCantidad() == 0) {
+                                actual.getCultivos().remove(post);
+                            }
                             cliente3.setCantidadPedida(0);
                             cliente3.setPedidoCultivo("");
                             cliente3.setPago(0);

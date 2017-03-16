@@ -1699,6 +1699,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         String pass = jtf_passinput.getText();
         if (leer(user, pass)) {
             jl_saldoincial.setText(actual.getSaldoBase() + "");
+            jl_saldoincial1.setText(actual.getDineroTotal()+"");
             jl_nombre.setText(actual.getNombre());
             jf_adminView.pack();
             jf_adminView.setLocationRelativeTo(this);
@@ -1746,9 +1747,11 @@ public class VetanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jb_harvestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_harvestActionPerformed
+        
         jcombo_harcrop.removeAllItems();
         for (int i = 0; i < actual.getCultivos().getSize(); i++) {
             jcombo_harcrop.addItem(actual.getCultivos(i).toString());
+           
         }
         jd_harvest1.setModal(true);
         jd_harvest1.pack();
@@ -1765,7 +1768,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
         String nombre = jt_nombre.getText();
         String contra = jt_contra.getText();
         Double saldo = Double.parseDouble(jt_saldo.getText());
-        System.out.println(nombre + contra + saldo);
+        
         Hacienda creada = new Hacienda(saldo, nombre, contra);
         if (guardar(creada)) {
             JOptionPane.showMessageDialog(this, "Success!");
@@ -2318,7 +2321,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
             //se cierra archivo
             file.close();
         } catch (IOException ex) {
-            System.out.println(ex);
+            
         }
         return true;
     }
@@ -2339,7 +2342,7 @@ public class VetanaPrincipal extends javax.swing.JFrame {
                 //Se utilizan metodos de la clase asi como variables guardados en el objeto
             }
         } catch (ClassNotFoundException | IOException ex) {
-            System.out.println(ex);
+            
             return false;
         }
         return actual != null;

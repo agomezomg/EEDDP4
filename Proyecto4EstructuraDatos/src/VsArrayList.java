@@ -19,7 +19,7 @@ public class VsArrayList implements ADTList, Serializable {
     public VsArrayList(int capacity) {
         this.size = 0;
         this.capacity = capacity;
-        
+
         objetos = new Object[capacity];
     }
 
@@ -44,7 +44,9 @@ public class VsArrayList implements ADTList, Serializable {
     @Override
     public Object remove(int pos) {
         for (int i = pos; i < getSize(); i++) {
-            objetos[i] = objetos[i + 1];
+            if (i + 1 < getSize()) {
+                objetos[i] = objetos[i + 1];
+            }
         }
         size--;
         return true;
