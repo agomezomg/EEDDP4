@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author didiermurillo
  */
-public class Cliente implements Serializable {
+public class Cliente implements Serializable, Comparable<Cliente> {
 
     private String Nombre;
     private String PedidoCultivo;
@@ -96,7 +96,17 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Nombre: " + Nombre + ",PedidoCultivo: " + PedidoCultivo + ", Pago por unidad :" + Pago + "Cantidad Pedida:"+ CantidadPedida;
+        return Nombre + ", " + kmAway + "km away" + ", PedidoCultivo: " + PedidoCultivo + ", Pago por unidad :" + Pago + "Cantidad Pedida: "+ CantidadPedida;
+    }
+
+    @Override
+    public int compareTo(Cliente o) {
+        if (this.getKmAway() > o.getKmAway())
+            return 1;
+        else if (this.getKmAway() == o.getKmAway())
+            return 0;
+        else 
+            return -1;
     }
 
 }
